@@ -1,0 +1,560 @@
+﻿
+:root {
+  --bg: #070b1c;
+  --surface: #10172e;
+  --ink: #f5f7ff;
+  --muted: #a4acc8;
+  --faint: #687394;
+  --border: rgba(153, 167, 230, .18);
+  --indigo: #8c7bff;
+  --indigo-soft: rgba(140, 123, 255, .14);
+  --teal: #4de1d0;
+  --teal-soft: rgba(77, 225, 208, .12);
+  --radius: 3px;
+  --sidebar-width: 220px;
+  --navbar-height: 64px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.serif {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  display: block;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 76% 8%, rgba(111, 79, 255, .16), transparent 26%),
+    radial-gradient(circle at 10% 86%, rgba(26, 210, 194, .09), transparent 23%),
+    var(--bg);
+}
+
+.app::before,
+.app::after {
+  position: fixed;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app::before {
+  opacity: .55;
+  background:
+    radial-gradient(circle at 75% 12%, rgba(117, 107, 232, .18), transparent 22%),
+    radial-gradient(circle at 18% 78%, rgba(15, 124, 121, .12), transparent 20%),
+    radial-gradient(circle at 90% 88%, rgba(217, 119, 69, .08), transparent 18%);
+  animation: workspace-aurora 16s ease-in-out infinite alternate;
+}
+
+.app::after {
+  opacity: .16;
+  background-image:
+    linear-gradient(rgba(54, 47, 120, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(54, 47, 120, .07) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+.sidebar,
+.navbar,
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar {
+  background: rgba(7, 11, 28, .82);
+  border-right-color: rgba(141, 126, 255, .2);
+  box-shadow: 16px 0 45px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(18px);
+}
+
+.navbar {
+  background: rgba(7, 11, 28, .72);
+  border-bottom-color: rgba(141, 126, 255, .18);
+  backdrop-filter: blur(18px);
+}
+
+.page-content {
+  background:
+    radial-gradient(circle at 70% 0%, rgba(117, 107, 232, .10), transparent 28%),
+    transparent;
+}
+
+.dashboard-page,
+.learn-page,
+.progress-page,
+.profile-page,
+.algorithms-page,
+.algorithm-detail-page,
+.code-lab-page,
+.challenges-page,
+.ai-tutor-page,
+.simulator-page,
+.simple-tool-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.dashboard-stat-card,
+.continue-learning-card,
+.learning-progress-card,
+.lecture-card,
+.tool-card,
+.algorithm-card,
+.personalized-card,
+.dashboard-cta,
+.simulator-card,
+.studio-card,
+.simple-tool-header {
+  background: linear-gradient(145deg, rgba(18, 27, 58, .84), rgba(12, 18, 42, .72));
+  color: var(--ink);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .22), inset 0 1px rgba(255,255,255,.04);
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.dashboard-stat-card:hover,
+.continue-learning-card:hover,
+.learning-progress-card:hover,
+.tool-card:hover,
+.algorithm-card:hover,
+.personalized-card:hover {
+  border-color: rgba(77, 225, 208, .55);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .3), 0 0 26px rgba(77, 225, 208, .08);
+}
+
+@keyframes workspace-aurora {
+  50% {
+    transform: scale(1.08) translate3d(1%, -1%, 0);
+    filter: hue-rotate(12deg);
+  }
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding: 28px 20px;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  box-shadow: none;
+  z-index: 1000;
+}
+
+.logo-area {
+  padding: 0 0 38px;
+}
+
+.logo-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  text-align: left;
+}
+
+.logo-icon {
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.logo-icon span {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.logo-text h1 {
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.logo-text span {
+  margin-top: 1px;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.menu-title {
+  padding: 0 10px 8px;
+  color: var(--faint);
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-menu {
+  gap: 2px;
+}
+
+.sidebar-item {
+  min-height: 38px;
+  gap: 11px;
+  padding: 9px 10px;
+  color: var(--muted);
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: var(--radius);
+  background: transparent;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.sidebar-item span {
+  font-size: 13.5px;
+  font-weight: 400;
+}
+
+.sidebar-item svg {
+  color: currentColor;
+}
+
+.sidebar-item:hover,
+.sidebar-item.selected {
+  color: var(--ink);
+  background: var(--indigo-soft);
+  border-color: var(--indigo);
+}
+
+.sidebar-item:hover svg,
+.sidebar-item.selected svg {
+  color: currentColor;
+}
+
+.sidebar-item.selected span {
+  font-weight: 500;
+}
+
+.sidebar-badge,
+.ai-status,
+.sidebar-item.settings {
+  display: none;
+}
+
+.profile {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.profile-avatar {
+  width: 28px;
+  height: 28px;
+  background: var(--indigo);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px;
+}
+
+.profile-text strong {
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.profile-text span {
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.online {
+  background: var(--teal);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--sidebar-width);
+  height: var(--navbar-height);
+  padding: 0 44px;
+  background: rgba(250, 250, 247, 0.94);
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+  z-index: 900;
+}
+
+.navbar-context {
+  min-width: 0;
+}
+
+.context-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  border: 0;
+  border-radius: 50%;
+}
+
+.navbar-brand-text span {
+  color: var(--indigo);
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.navbar-brand-text strong {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.notification-button,
+.navbar-profile {
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.notification-button:hover,
+.navbar-profile:hover {
+  color: var(--ink);
+  background: var(--indigo-soft);
+  border-color: var(--indigo);
+}
+
+.notification-dot {
+  background: var(--teal);
+  border-color: var(--bg);
+}
+
+.navbar-avatar {
+  width: 28px;
+  height: 28px;
+  background: var(--indigo);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.navbar-user strong {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.navbar-user span {
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.page-content {
+  width: auto;
+  height: 100vh;
+  margin: 0 0 0 var(--sidebar-width);
+  padding: calc(var(--navbar-height) + 42px) 56px 56px;
+  background: var(--bg);
+  overflow-y: auto;
+  scrollbar-color: var(--border) transparent;
+}
+
+.page-content::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/* Keep the previous page-level menu from duplicating the shell rail. */
+.ql-dashboard-footer-nav {
+  display: none !important;
+}
+
+/* Shared reader-like treatment for existing page surfaces. */
+.dashboard-page,
+.learn-page,
+.progress-page,
+.profile-page,
+.algorithms-page,
+.algorithm-detail-page,
+.code-lab-page,
+.challenges-page,
+.ai-tutor-page,
+.simulator-page {
+  background: transparent;
+}
+
+.dashboard-main,
+.learn-content {
+  width: min(860px, 100%);
+  margin: 0;
+  padding: 0 0 48px;
+}
+
+.dashboard-header h1,
+.learn-intro h1 {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.dashboard-eyebrow,
+.section-label,
+.learn-label {
+  color: var(--teal);
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dashboard-subtitle,
+.learn-intro p:last-child,
+.lecture-card p {
+  color: var(--muted);
+}
+
+.dashboard-stat-card,
+.lecture-card,
+.tool-card,
+.algorithm-card,
+.dashboard-header-badge,
+.continue-learning-card,
+.learning-progress-card,
+.personalized-card,
+.dashboard-cta {
+  border-color: var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.lecture-card:hover,
+.tool-card:hover,
+.algorithm-card:hover {
+  transform: none;
+  border-color: var(--indigo);
+}
+
+.search-submit-button,
+.primary-button {
+  background: var(--indigo);
+}
+
+.secondary-button,
+.section-link,
+.watch-button,
+.learn-back,
+.btn {
+  color: var(--indigo);
+}
+
+.large-progress-bar,
+.lecture-progress {
+  height: 3px;
+  border-radius: 0;
+  background: var(--border);
+}
+
+.large-progress-fill,
+.lecture-progress div {
+  background: var(--indigo);
+}
+
+.learn-header {
+  display: none;
+}
+
+.lectures-heading,
+.section-heading {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.lecture-card {
+  border-width: 0 0 1px;
+  background: transparent;
+  padding: 22px 4px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.lecture-number {
+  color: var(--faint);
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.lecture-count {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--faint);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --sidebar-width: 190px;
+  }
+
+  .page-content {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .navbar {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --sidebar-width: 0px;
+    --navbar-height: 58px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .navbar {
+    left: 0;
+    padding: 0 16px;
+  }
+
+  .page-content {
+    margin-left: 0;
+    padding: calc(var(--navbar-height) + 28px) 20px 32px;
+  }
+
+  .ql-dashboard-footer-nav {
+    display: flex !important;
+  }
+
+  .dashboard-main,
+  .learn-content {
+    width: 100%;
+  }
+}

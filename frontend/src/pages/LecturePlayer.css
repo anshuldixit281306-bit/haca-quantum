@@ -1,0 +1,102 @@
+.lecture-page {
+  min-height: 100vh;
+  padding: 28px clamp(18px, 4vw, 56px) 56px;
+  color: var(--q-ink);
+}
+
+.lecture-header {
+  max-width: 1460px;
+  margin: 0 auto 24px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.lecture-header h1 { margin: 4px 0 0; font-size: clamp(24px, 3vw, 38px); }
+.lecture-back, .lecture-close, .player-reset {
+  display: inline-flex; align-items: center; gap: 7px; color: var(--q-muted);
+}
+.lecture-back:hover, .lecture-close:hover, .player-reset:hover { color: var(--q-cyan); }
+.lecture-eyebrow { color: var(--q-teal); font: 11px var(--q-font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.lecture-live { justify-self: end; color: var(--q-cyan); font: 11px var(--q-font-mono); letter-spacing: .1em; }
+.lecture-live span { display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--q-cyan); box-shadow: 0 0 12px var(--q-cyan); }
+.lecture-main, .lecture-results { max-width: 1460px; margin: 0 auto; }
+.lecture-main { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr); gap: 22px; align-items: start; }
+.lecture-video-column, .lecture-sidebar { display: flex; flex-direction: column; gap: 16px; }
+.lecture-video-card, .lecture-panel, .lecture-explore-card, .lecture-question { border: 1px solid var(--q-border); border-radius: 17px; background: rgba(10, 13, 31, .72); box-shadow: 0 18px 45px rgba(0, 0, 0, .2); backdrop-filter: blur(15px); }
+.lecture-video-card { overflow: hidden; }
+.lecture-video-host { position: relative; aspect-ratio: 16 / 9; background: #03050d; }
+.lecture-video-host > div, .lecture-video-host iframe { width: 100%; height: 100%; border: 0; }
+.lecture-unavailable { display: grid; place-items: center; color: var(--q-muted); }
+.lecture-player-bar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(255,255,255,.035); }
+.lecture-player-bar input { flex: 1; accent-color: var(--q-cyan); }
+.player-play { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #06111d; background: var(--q-cyan); }
+.player-time { min-width: 90px; color: var(--q-muted); font: 12px var(--q-font-mono); }
+.lecture-panel, .lecture-explore-card, .lecture-question { padding: 18px; }
+.lecture-panel-heading { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; color: var(--q-ink); font-size: 13px; font-weight: 700; }
+.lecture-panel-heading span { margin-left: auto; color: var(--q-faint); font: 11px var(--q-font-mono); }
+.timeline-panel { padding-bottom: 12px; }
+.lecture-timeline { position: relative; margin: 0; padding: 0 0 0 4px; }
+.lecture-timeline::before { content: ""; position: absolute; left: 17px; top: 19px; bottom: 19px; width: 1px; background: rgba(141,130,255,.28); }
+.lecture-timeline li { position: relative; list-style: none; }
+.lecture-timeline button { position: relative; z-index: 1; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: center; width: 100%; padding: 8px 4px; text-align: left; color: var(--q-muted); }
+.lecture-timeline button:hover, .lecture-timeline li.active button { color: var(--q-ink); }
+.timeline-node { display: grid; place-items: center; width: 27px; height: 27px; border: 1px solid rgba(141,130,255,.4); border-radius: 50%; background: #0c1027; color: var(--q-faint); font: 11px var(--q-font-mono); }
+.lecture-timeline li.active .timeline-node { border-color: var(--q-cyan); color: #04111c; background: var(--q-cyan); box-shadow: 0 0 16px rgba(34,211,238,.5); }
+.lecture-timeline li.complete .timeline-node { border-color: var(--q-teal); color: var(--q-teal); }
+.lecture-timeline strong, .lecture-timeline small { display: block; }
+.lecture-timeline strong { font-size: 12.5px; }
+.lecture-timeline small { margin-top: 2px; color: var(--q-faint); font: 10px var(--q-font-mono); }
+.lecture-explore-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.lecture-explore-card h2 { margin: 4px 0 4px; font-size: 21px; }
+.lecture-explore-card p { max-width: 680px; color: var(--q-muted); font-size: 13px; }
+.lecture-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 8px 13px; border: 1px solid var(--q-border-hot); border-radius: 9px; color: var(--q-ink); background: rgba(124,108,255,.1); font-size: 12px; white-space: nowrap; }
+.lecture-button.primary { border-color: transparent; color: #07101c; background: var(--q-grad-primary); font-weight: 700; }
+.lecture-button:disabled { cursor: not-allowed; opacity: .5; }
+.lecture-question h3 { margin: 0 0 13px; font-size: 15px; }
+.question-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.question-options button { padding: 10px; border: 1px solid var(--q-border); border-radius: 8px; color: var(--q-muted); background: rgba(255,255,255,.025); text-align: left; font-size: 12px; }
+.question-options button:hover { border-color: var(--q-cyan); color: var(--q-ink); }
+.question-options button.correct { border-color: var(--q-teal); color: var(--q-teal); background: rgba(77,225,208,.1); }
+.question-options button.incorrect { border-color: #f87171; color: #fca5a5; }
+.question-feedback { margin-top: 12px; color: var(--q-teal); font-size: 12px; }
+.concept-panel { overflow: hidden; }
+.heading-dot { width: 8px; height: 8px; margin: 0 !important; border-radius: 50%; background: var(--q-cyan); box-shadow: 0 0 11px var(--q-cyan); }
+.lecture-visual-stage { position: relative; display: grid; place-items: center; min-height: 310px; overflow: hidden; border: 1px solid rgba(141,130,255,.17); border-radius: 13px; background: linear-gradient(145deg, #0a1024, #0d1d31); }
+.lecture-stage-orbit { position: absolute; width: 230px; height: 140px; border: 1px solid rgba(34,211,238,.15); border-radius: 50%; transform: rotate(-24deg); animation: lecture-orbit 7s linear infinite; }
+.visual-stack { position: relative; display: grid; place-items: center; gap: 15px; width: calc(100% - 28px); z-index: 1; }
+.formula { padding: 9px 14px; border: 1px solid rgba(141,130,255,.35); border-radius: 9px; color: #dbeafe; background: rgba(124,108,255,.12); font: 15px var(--q-font-mono); }
+.qubit-card { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; }
+.qubit-card strong, .qubit-card span { display: block; }
+.qubit-card span { margin-top: 5px; color: var(--q-muted); font: 12px var(--q-font-mono); }
+.qubit-orb { display: grid; place-items: center; width: 100px; height: 100px; border: 1px solid var(--q-cyan); border-radius: 50%; box-shadow: inset 0 0 25px rgba(34,211,238,.2), 0 0 25px rgba(34,211,238,.2); animation: lecture-float 3s ease-in-out infinite; }
+.qubit-dot { width: 17px !important; height: 17px; border-radius: 50%; background: var(--q-cyan); box-shadow: 0 0 20px var(--q-cyan); }
+.gate-flow, .collapse-visual { display: flex; align-items: center; gap: 12px; color: var(--q-muted); font: 15px var(--q-font-mono); }
+.gate-flow b, .measure-box { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--q-cyan); border-radius: 8px; color: var(--q-cyan); box-shadow: 0 0 16px rgba(34,211,238,.25); animation: lecture-pop .6s ease both; }
+.state-wave { animation: lecture-pulse 1.8s ease-in-out infinite; }
+.state-result { color: var(--q-teal); }
+.lecture-inline-action { position: absolute; bottom: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border-radius: 8px; color: var(--q-cyan); background: rgba(34,211,238,.1); font-size: 11px; }
+.lecture-results { margin-top: 22px; padding: 22px; border: 1px solid var(--q-border); border-radius: 17px; background: rgba(10,13,31,.56); }
+.lecture-results-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.lecture-results-head h2 { margin-top: 4px; font-size: 22px; }
+.lecture-results-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 15px; }
+.bloch-wrap { display: grid; place-items: center; gap: 12px; min-height: 220px; }
+.bloch-sphere { position: relative; width: 160px; height: 160px; border: 1px solid rgba(34,211,238,.55); border-radius: 50%; box-shadow: inset 20px 0 35px rgba(124,108,255,.18), inset -20px 0 35px rgba(34,211,238,.12); }
+.bloch-equator { position: absolute; inset: 35% -1px; border-top: 1px dashed rgba(141,130,255,.6); border-bottom: 1px dashed rgba(141,130,255,.35); border-radius: 50%; }
+.bloch-axis { position: absolute; background: rgba(141,130,255,.35); }
+.bloch-x { left: 10%; right: 10%; top: 50%; height: 1px; }
+.bloch-z { top: 10%; bottom: 10%; left: 50%; width: 1px; }
+.bloch-point { position: absolute; z-index: 2; width: 12px; height: 12px; margin: -6px; border-radius: 50%; background: var(--q-teal); box-shadow: 0 0 16px var(--q-teal); transition: all .7s ease; }
+.bloch-label { position: absolute; left: calc(50% - 7px); color: var(--q-muted); font: 11px var(--q-font-mono); }
+.bloch-label.top { top: -20px; }.bloch-label.bottom { bottom: -20px; }
+.lecture-muted, .lecture-empty { color: var(--q-faint); font-size: 11px; }
+.lecture-result-meta { display: flex; justify-content: space-between; color: var(--q-faint); font: 10px var(--q-font-mono); }
+.lecture-code { margin-top: 15px; overflow: hidden; border: 1px solid var(--q-border); border-radius: 11px; background: #070a16; }
+.lecture-code pre { margin: 0; padding: 12px; overflow-x: auto; }.lecture-code code { display: block; color: #aab6dc; font: 11px/1.8 var(--q-font-mono); }.lecture-code code.highlight { color: var(--q-cyan); background: rgba(34,211,238,.1); }.lecture-code i { display: inline-block; width: 30px; color: var(--q-faint); font-style: normal; }
+.lecture-alert { max-width: 1460px; margin: 0 auto 14px; padding: 10px 13px; border-radius: 9px; color: #fbbf24; background: rgba(251,191,36,.1); font-size: 12px; }
+.lecture-state { display: grid; place-items: center; align-content: center; gap: 12px; min-height: 70vh; color: var(--q-muted); }.lecture-state .lecture-button { margin-top: 5px; }
+.spin { animation: lecture-spin 1s linear infinite; }
+@keyframes lecture-spin { to { transform: rotate(360deg); } } @keyframes lecture-float { 50% { transform: translateY(-7px); } } @keyframes lecture-pop { from { transform: scale(.65); opacity: 0; } to { transform: scale(1); opacity: 1; } } @keyframes lecture-pulse { 50% { opacity: .35; transform: scale(.92); } } @keyframes lecture-orbit { to { transform: rotate(336deg); } }
+@media (max-width: 980px) { .lecture-header { grid-template-columns: 1fr auto; }.lecture-header > div { grid-column: 1 / -1; grid-row: 1; }.lecture-back { grid-column: 1; grid-row: 2; }.lecture-live { grid-column: 2; grid-row: 2; }.lecture-main, .lecture-results-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .lecture-page { padding: 18px 12px 40px; }.lecture-player-bar { flex-wrap: wrap; }.lecture-player-bar input { order: 4; flex-basis: 100%; }.lecture-explore-card { align-items: flex-start; flex-direction: column; }.question-options { grid-template-columns: 1fr; }.lecture-header h1 { font-size: 24px; } }

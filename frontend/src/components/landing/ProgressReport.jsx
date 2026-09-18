@@ -1,0 +1,11 @@
+import { Award, Calendar, Flame, TrendingUp } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+const progress = [["Overall Progress", 78, "#00e5ff"], ["Quantum Fundamentals", 92, "#3b82f6"], ["Quantum Algorithms", 68, "#8b5cf6"], ["Quizzes", 84, "#a855f7"], ["Challenges", 73, "#00e5ff"]];
+
+export default function ProgressReport() {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => { const observer = new IntersectionObserver(([entry]) => { if (entry?.isIntersecting) { setVisible(true); observer.disconnect(); } }, { threshold: 0.2 }); if (ref.current) observer.observe(ref.current); return () => observer.disconnect(); }, []);
+  return <section ref={ref} className="ql-new-section ql-new-progress"><div className="ql-new-section-inner"><div className="ql-new-heading ql-new-reveal"><small>PROGRESS REPORT</small><h2>See Your Quantum <span>Learning Journey</span></h2></div><div className="ql-new-progress-layout"><article className="ql-new-card ql-new-progress-ring"><div className="ql-new-ring"><b>{visible ? "78" : "0"}%</b><small>Overall</small></div><p>Your overall learning progress</p><div><span><Flame /> 7d <small>streak</small></span><span><Award /> 12 <small>badges</small></span></div></article><article className="ql-new-card ql-new-progress-bars"><h3><TrendingUp size={16} /> Subject Breakdown</h3>{progress.map(([label, value, color]) => <div key={label}><label><span>{label}</span><b style={{ color }}>{visible ? value : 0}%</b></label><i><em style={{ width: visible ? `${value}%` : "0%", background: color }} /></i></div>)}</article><article className="ql-new-card ql-new-activity"><h3><Calendar size={16} /> Weekly Activity</h3><div>{[40, 65, 50, 80, 60, 90, 75].map((value, index) => <span key={index}><i style={{ height: visible ? `${value}%` : "0%" }} /><small>{"MTWTFSS"[index]}</small></span>)}</div></article><article className="ql-new-card ql-new-achievements"><h3>Recent Achievements</h3><div><span><Flame /> 7-Day Streak</span><span><Award /> Quiz Master</span><span><TrendingUp /> Top 10%</span></div></article></div></div></section>;
+}

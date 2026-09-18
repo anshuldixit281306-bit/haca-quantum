@@ -1,0 +1,2353 @@
+/* ============================================================
+   QUANTUMLEARN — QUANTUM THEME
+   Global quantum-computing visual layer for EVERY page.
+   Loaded LAST so it overrides base + redesign styles.
+   Deep-space aurora, neon gradient accents, glassmorphism,
+   animated scan/grid overlays, Space Grotesk + Orbitron fonts.
+   ============================================================ */
+
+
+/* ============================================================
+   1. QUANTUM DESIGN TOKENS
+   ============================================================ */
+:root {
+  --q-bg: #061312;
+  --q-bg-2: #0a1b1a;
+  --q-surface: rgba(16, 32, 31, 0.72);
+  --q-surface-2: rgba(17, 43, 43, 0.66);
+  --q-glass: rgba(8, 25, 24, 0.64);
+  --q-ink: #e7faf4;
+  --q-ink-strong: #ffffff;
+  --q-muted: #9abbb3;
+  --q-faint: #70918a;
+
+  --q-indigo: #3b82f6;
+  --q-violet: #a855f7;
+  --q-cyan: #5eead4;
+  --q-teal: #a7f3d0;
+  --q-magenta: #34d399;
+
+  --q-border: rgba(94, 234, 212, 0.18);
+  --q-border-hot: rgba(94, 234, 212, 0.42);
+
+  --q-grad-primary: linear-gradient(120deg, #3b82f6 0%, #5eead4 52%, #34d399 100%);
+  --q-grad-accent: linear-gradient(120deg, #5eead4 0%, #3b82f6 55%, #34d399 100%);
+  --q-grad-text: linear-gradient(100deg, #f0fffb 0%, #a7f3d0 42%, #5eead4 100%);
+
+  --q-font-display: "Space Grotesk", "IBM Plex Sans", "Segoe UI", Arial, system-ui, sans-serif;
+  --q-font-orbital: "Orbitron", "Space Grotesk", "Segoe UI", Arial, sans-serif;
+  --q-font-body: "IBM Plex Sans", "Inter", "Segoe UI", system-ui, sans-serif;
+  --q-font-mono: "IBM Plex Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
+}
+
+/* ============================================================
+   2. GLOBAL BODY / REACT ROOT — deep space + moving aurora
+   ============================================================ */
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--q-font-body);
+  background: var(--q-bg) !important;
+  color: var(--q-ink) !important;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Ambient background layer baked onto the html root for every screen */
+#root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(20, 184, 166, 0.18), transparent 30%),
+    radial-gradient(circle at 84% 20%, rgba(59, 130, 246, 0.11), transparent 26%),
+    radial-gradient(circle at 64% 86%, rgba(52, 211, 153, 0.12), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(94, 234, 212, 0.10), transparent 24%),
+    linear-gradient(180deg, #061312 0%, #071b20 55%, #061312 100%);
+  animation: q-aurora-drift 22s ease-in-out infinite alternate;
+}
+
+/* Faint sci-fi grid above the aurora */
+#root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(152, 166, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(152, 166, 255, 0.12) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+  animation: q-grid-pan 36s linear infinite;
+}
+
+/* Slow scanning beam across the whole viewport */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -30%;
+  height: 34%;
+  z-index: 9998;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, rgba(124, 108, 255, 0.05), transparent);
+  animation: q-scan-sweep 9s linear infinite;
+}
+
+/* App pages surface above the ambient layers */
+.app,
+.login-page,
+.registration-page,
+.landing-page {
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+}
+/* ============================================================
+   3. SELECTION & SCROLLBAR — neon
+   ============================================================ */
+::selection {
+  background: rgba(124, 108, 255, 0.5);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070a18;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4b3fd9, #1f2a6b);
+  border-radius: 20px;
+  border: 2px solid #070a18;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6b5df5, #2b3ba3);
+}
+
+/* ============================================================
+   4. TYPOGRAPHY — impressive fonts everywhere
+   ============================================================ */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--q-font-display);
+  color: var(--q-ink);
+  letter-spacing: -0.02em;
+}
+
+/* Mono "eyebrow" labels everywhere */
+.section-label,
+.dashboard-eyebrow,
+.learn-label,
+.landing-kicker,
+.algorithms-kicker,
+.explorer-kicker,
+.studio-kicker,
+.tool-kicker,
+.progress-label,
+.profile-label,
+.algorithm-detail-kicker,
+.ai-tutor-title p,
+.panel-heading,
+.editor-label {
+  font-family: var(--q-font-mono) !important;
+  color: var(--q-teal) !important;
+  letter-spacing: 0.12em !important;
+  text-transform: none !important;
+}
+
+/* Gradient shimmer headline text */
+.dashboard-header h1,
+.learn-intro h1,
+.progress-intro h1,
+.profile-identity h1,
+.algorithm-detail-hero h1,
+.studio-hero h1 em,
+.landing-hero h1 em,
+.landing-invite h2 em,
+.tool-hero h1 em,
+.ai-tutor-title h1,
+.chat-container h2 {
+  background: var(--q-grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% auto;
+  animation: q-text-shimmer 6s ease-in-out infinite alternate;
+}
+
+.studio-hero h1,
+.landing-hero h1,
+.tool-hero h1 {
+  color: var(--q-ink);
+}
+/* ============================================================
+   5. APP SHELL — SIDEBAR, NAVBAR, BOTTOM NAV
+   ============================================================ */
+.app {
+  background:
+    radial-gradient(circle at 76% 6%, rgba(124, 108, 255, 0.2), transparent 30%),
+    var(--q-bg) !important;
+}
+
+.app::before {
+  opacity: 0.9;
+  background:
+    radial-gradient(circle at 74% 12%, rgba(124, 108, 255, 0.3), transparent 26%),
+    radial-gradient(circle at 16% 80%, rgba(34, 211, 238, 0.16), transparent 24%),
+    radial-gradient(circle at 90% 88%, rgba(232, 121, 249, 0.14), transparent 22%);
+}
+
+.page-content {
+  background:
+    radial-gradient(circle at 70% 0%, rgba(124, 108, 255, 0.14), transparent 32%),
+    transparent !important;
+}
+
+/* ---- SIDEBAR ---- */
+.sidebar {
+  background: rgba(6, 8, 20, 0.85) !important;
+  border-right: 1px solid var(--q-border) !important;
+  backdrop-filter: blur(22px);
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid transparent;
+  background: linear-gradient(#0a0d1f, #0a0d1f) padding-box,
+    var(--q-grad-accent) border-box;
+  color: var(--q-ink-strong) !important;
+  box-shadow: 0 0 18px rgba(124, 108, 255, 0.55) !important;
+  animation: q-logo-pulse 3.2s ease-in-out infinite;
+}
+
+.logo-text h1 {
+  font-family: var(--q-font-orbital);
+  font-size: 13px;
+  letter-spacing: 0.09em;
+  background: var(--q-grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-item {
+  position: relative;
+  border-radius: 10px;
+}
+
+.sidebar-item.selected {
+  background: linear-gradient(90deg, rgba(124, 108, 255, 0.22), rgba(34, 211, 238, 0.08)) !important;
+  box-shadow: inset 3px 0 0 var(--q-indigo), 0 0 22px rgba(124, 108, 255, 0.25);
+  color: var(--q-ink-strong) !important;
+}
+
+.sidebar-item:not(.selected):hover {
+  background: rgba(124, 108, 255, 0.12) !important;
+  color: var(--q-ink) !important;
+}
+
+.menu-title {
+  color: var(--q-faint);
+  font-family: var(--q-font-mono);
+  letter-spacing: 0.22em;
+}
+
+.profile-avatar,
+.profile-avatar::after {
+  background: var(--q-grad-accent);
+  box-shadow: 0 0 14px rgba(124, 108, 255, 0.5);
+  color: #fff;
+}
+
+.profile {
+  border-top-color: var(--q-border);
+}
+
+.online {
+  box-shadow: 0 0 8px var(--q-teal);
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+  background: rgba(6, 8, 20, 0.72) !important;
+  border-bottom: 1px solid var(--q-border) !important;
+  backdrop-filter: blur(20px);
+}
+
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124, 108, 255, 0.75), rgba(34, 211, 238, 0.75), transparent);
+  animation: q-hairline-flow 5s linear infinite;
+}
+
+.navbar-brand-text span {
+  font-family: var(--q-font-orbital);
+  letter-spacing: 0.16em;
+  color: var(--q-ink) !important;
+}
+
+.navbar-brand-text strong {
+  color: var(--q-muted) !important;
+}
+
+.context-icon {
+  border: 1px solid var(--q-border);
+  background: rgba(124, 108, 255, 0.14);
+  color: var(--q-teal) !important;
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.25);
+  animation: q-float 5s ease-in-out infinite;
+}
+
+.notification-button,
+.navbar-profile {
+  background: rgba(124, 108, 255, 0.07) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-muted) !important;
+}
+
+.notification-button:hover,
+.navbar-profile:hover {
+  color: var(--q-ink-strong) !important;
+  border-color: var(--q-indigo) !important;
+  background: rgba(124, 108, 255, 0.16) !important;
+  box-shadow: 0 0 16px rgba(124, 108, 255, 0.3);
+}
+
+.notification-dot {
+  background: var(--q-teal);
+  box-shadow: 0 0 8px var(--q-teal);
+  animation: q-dot-pulse 1.8s ease-in-out infinite;
+  border-color: #0a0d1f;
+}
+
+.navbar-avatar {
+  background: var(--q-grad-accent);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(124, 108, 255, 0.45);
+}
+
+.notification-panel {
+  background: rgba(10, 13, 31, 0.95) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-ink);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 30px rgba(124, 108, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 14px;
+}
+
+.notification-panel-header {
+  border-bottom-color: var(--q-border);
+}
+
+.notification-panel-header span {
+  color: var(--q-teal) !important;
+}
+
+/* ---- BOTTOM NAV (mobile) ---- */
+.ql-dashboard-footer-nav {
+  background: rgba(10, 13, 31, 0.92) !important;
+  border: 1px solid var(--q-border) !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), 0 0 24px rgba(124, 108, 255, 0.15);
+  backdrop-filter: blur(18px);
+}
+
+.ql-navigation-menu-button {
+  color: var(--q-ink) !important;
+}
+
+.ql-footer-nav-button {
+  color: var(--q-muted) !important;
+}
+
+.ql-footer-nav-button:hover,
+.ql-footer-nav-button.active {
+  background: rgba(124, 108, 255, 0.16) !important;
+  color: var(--q-ink-strong) !important;
+}
+
+.ql-footer-nav-button.active .ql-footer-nav-icon {
+  background: var(--q-grad-primary) !important;
+  color: #fff !important;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
+}
+
+.ql-footer-nav-button.active::after {
+  background: var(--q-cyan) !important;
+  box-shadow: 0 0 8px var(--q-cyan);
+}
+/* ============================================================
+   6. GLASS CARDS — unified quantum surface for all pages
+   ============================================================ */
+.dashboard-stat-card,
+.continue-learning-card,
+.learning-progress-card,
+.lecture-card,
+.tool-card,
+.algorithm-card,
+.personalized-card,
+.dashboard-cta,
+.simulator-card,
+.studio-card,
+.overall-progress-card,
+.progress-lecture-card,
+.profile-hero,
+.profile-stat-card,
+.profile-progress-card,
+.profile-action-card,
+.chat-container,
+.ai-empty-state,
+.editor-panel,
+.inspector-panel,
+.circuit-visual-card,
+.quantum-scene,
+.studio-level,
+.assessment-card,
+.challenge-card,
+.admin-card,
+.subscription-card {
+  background: linear-gradient(150deg, rgba(16, 21, 48, 0.9), rgba(9, 12, 28, 0.82)) !important;
+  border: 1px solid var(--q-border) !important;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35), inset 0 1px rgba(255, 255, 255, 0.05) !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+  animation: q-reveal 0.65s ease both;
+}
+
+.dashboard-stat-card:hover,
+.continue-learning-card:hover,
+.learning-progress-card:hover,
+.tool-card:hover,
+.algorithm-card:hover,
+.personalized-card:hover,
+.overall-progress-card:hover,
+.progress-lecture-card:hover,
+.profile-hero:hover,
+.profile-stat-card:hover,
+.profile-action-card:hover,
+.assessment-card:hover,
+.challenge-card:hover,
+.admin-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(125, 211, 252, 0.5) !important;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45), 0 0 30px rgba(124, 108, 255, 0.18) !important;
+}
+/* ============================================================
+   7. BUTTONS — gradient + glow
+   ============================================================ */
+.primary-button,
+.cta-button,
+.login-button,
+.registration-button,
+.landing-primary,
+.landing-nav-cta,
+.search-submit-button,
+.run-button,
+.studio-action,
+.google-button,
+.watch-button,
+.experience-cta {
+  background: var(--q-grad-primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-family: var(--q-font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(109, 92, 252, 0.35) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-button::after,
+.cta-button::after,
+.login-button::after,
+.registration-button::after,
+.landing-primary::after,
+.landing-nav-cta::after,
+.run-button::after,
+.studio-action::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  animation: q-btn-sheen 3.2s ease-in-out infinite;
+}
+
+.primary-button:hover,
+.cta-button:hover,
+.login-button:hover,
+.registration-button:hover,
+.landing-primary:hover,
+.landing-nav-cta:hover,
+.run-button:hover,
+.studio-action:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 16px 42px rgba(109, 92, 252, 0.5), 0 0 26px rgba(34, 211, 238, 0.35) !important;
+  filter: brightness(1.08);
+}
+
+.secondary-button,
+.section-link,
+.learn-back,
+.btn,
+.back-button,
+.landing-secondary,
+.example-list button,
+.tool-actions button,
+.studio-tabs button {
+  color: var(--q-cyan) !important;
+  border-color: rgba(34, 211, 238, 0.35) !important;
+  transition: all 0.2s ease;
+}
+
+.secondary-button:hover,
+.section-link:hover,
+.learn-back:hover,
+.btn:hover,
+.example-list button:hover,
+.tool-actions button:hover {
+  background: rgba(34, 211, 238, 0.12) !important;
+  border-color: var(--q-cyan) !important;
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.2);
+}
+
+.google-icon {
+  color: var(--q-cyan) !important;
+}
+
+/* ============================================================
+   8. PROGRESS BARS — animated energy
+   ============================================================ */
+.large-progress-fill,
+.overall-progress-fill,
+.profile-progress-fill,
+.lecture-progress div,
+.studio-level i,
+.progress-bar-fill {
+  background: var(--q-grad-accent) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.55);
+}
+
+.large-progress-fill::after,
+.overall-progress-fill::after,
+.profile-progress-fill::after,
+.lecture-progress div::after,
+.progress-bar-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateX(-100%);
+  animation: q-progress-flow 2.2s ease-in-out infinite;
+}
+
+.large-progress-bar,
+.overall-progress-bar,
+.profile-progress-track,
+.lecture-progress {
+  background: rgba(141, 130, 255, 0.14) !important;
+  height: 8px;
+  border-radius: 999px;
+}
+
+/* ============================================================
+   9. BADGES, TAGS, RIBBONS
+   ============================================================ */
+.sidebar-badge,
+.ai-status,
+.dashboard-header-badge,
+.algorithm-detail-level,
+.profile-status,
+.progress-count,
+.lecture-count,
+.scene-status,
+.status-dot,
+.chip,
+.tag {
+  color: var(--q-teal) !important;
+  border-color: rgba(77, 225, 208, 0.4) !important;
+  background: rgba(77, 225, 208, 0.1) !important;
+  font-family: var(--q-font-mono);
+}
+
+.progress-lecture-tag {
+  color: var(--q-cyan) !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.lecture-completion.completed {
+  color: var(--q-teal) !important;
+}
+
+/* ============================================================
+   10. DASHBOARD + LEARN PAGE POLISH
+   ============================================================ */
+.dashboard-main,
+.learn-content {
+  width: min(880px, 100%);
+}
+
+.dashboard-subtitle,
+.learn-intro p:last-child,
+.lecture-card p {
+  color: var(--q-muted) !important;
+}
+
+.lectures-heading,
+.section-heading {
+  border-bottom-color: var(--q-border) !important;
+}
+
+.lecture-card {
+  border-width: 0 0 1px;
+  background: transparent !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.lecture-card:hover {
+  transform: none !important;
+  border-color: var(--q-indigo) !important;
+}
+
+.lecture-number {
+  color: var(--q-cyan);
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+}
+
+.learn-intro-icon,
+.stat-icon,
+.tool-icon,
+.algorithm-icon {
+  background: linear-gradient(135deg, rgba(124, 108, 255, 0.25), rgba(34, 211, 238, 0.12)) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-cyan) !important;
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.15);
+}
+/* ============================================================
+   11. AUTH PAGES — LOGIN / REGISTRATION (full quantum dark)
+   ============================================================ */
+.login-page,
+.registration-page {
+  background:
+    radial-gradient(circle at 15% 25%, rgba(124, 108, 255, 0.22), transparent 32%),
+    radial-gradient(circle at 85% 75%, rgba(34, 211, 238, 0.14), transparent 30%),
+    radial-gradient(circle at 72% 12%, rgba(232, 121, 249, 0.1), transparent 26%),
+    var(--q-bg) !important;
+  color: var(--q-ink) !important;
+}
+
+.login-page::before,
+.registration-page::before {
+  background:
+    radial-gradient(circle at 14% 20%, rgba(124, 108, 255, 0.3), transparent 30%),
+    radial-gradient(circle at 86% 70%, rgba(34, 211, 238, 0.16), transparent 28%),
+    linear-gradient(rgba(152, 166, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(152, 166, 255, 0.06) 1px, transparent 1px);
+  background-size: auto, auto, 54px 54px, 54px 54px;
+  animation: q-aurora-drift 18s ease-in-out infinite alternate;
+}
+
+/* Header */
+.login-header,
+.registration-header {
+  border-bottom: 1px solid var(--q-border);
+}
+
+.login-logo,
+.registration-logo {
+  font-family: var(--q-font-orbital);
+  letter-spacing: 0.12em;
+  color: var(--q-ink) !important;
+  text-shadow: 0 0 18px rgba(124, 108, 255, 0.4);
+}
+
+.login-nav a,
+.back-login {
+  color: var(--q-muted) !important;
+}
+
+.login-nav a:hover,
+.back-login:hover {
+  color: var(--q-teal) !important;
+}
+
+/* Left intro */
+.intro-label {
+  background: rgba(124, 108, 255, 0.14);
+  border: 1px solid rgba(124, 108, 255, 0.4);
+  color: var(--q-teal);
+  font-family: var(--q-font-mono);
+  box-shadow: 0 0 14px rgba(124, 108, 255, 0.25);
+}
+
+.login-intro h1 {
+  letter-spacing: -0.03em;
+}
+
+.login-intro h1 span {
+  background: var(--q-grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-intro > p {
+  color: var(--q-muted) !important;
+}
+
+.feature-item h3 {
+  color: var(--q-ink) !important;
+}
+
+.feature-item p {
+  color: var(--q-faint) !important;
+}
+
+.feature-icon {
+  background: linear-gradient(135deg, rgba(124, 108, 255, 0.28), rgba(34, 211, 238, 0.1)) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-cyan) !important;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.2);
+}
+
+/* Auth cards */
+.login-card,
+.registration-card {
+  background: rgba(11, 15, 34, 0.78) !important;
+  border: 1px solid var(--q-border) !important;
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5), 0 0 40px rgba(124, 108, 255, 0.14), inset 0 1px rgba(255, 255, 255, 0.06);
+  animation: q-reveal 0.7s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::after,
+.registration-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--q-grad-accent);
+  box-shadow: 0 0 18px rgba(124, 108, 255, 0.6);
+}
+
+.login-card-header h2,
+.registration-heading h1 {
+  font-family: var(--q-font-display);
+  color: var(--q-ink);
+}
+
+.login-card-header p,
+.registration-heading p {
+  color: var(--q-faint) !important;
+}
+
+/* Form controls */
+.form-group label,
+.registration-group label {
+  color: var(--q-muted) !important;
+  font-family: var(--q-font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+}
+
+.form-group input,
+.form-group select,
+.registration-group input,
+.registration-group select {
+  background: rgba(13, 17, 38, 0.8) !important;
+  border: 1px solid rgba(141, 130, 255, 0.25) !important;
+  border-radius: 10px !important;
+  color: var(--q-ink) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.form-group input::placeholder,
+.registration-group input::placeholder {
+  color: var(--q-faint) !important;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.registration-group input:focus,
+.registration-group select:focus {
+  border-color: var(--q-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.16), 0 0 20px rgba(34, 211, 238, 0.18) !important;
+}
+
+.show-password,
+.password-toggle,
+.forgot-password,
+.remember-option span,
+.terms-option,
+.terms-option a,
+.register-text a {
+  color: var(--q-cyan) !important;
+}
+
+.terms-option input,
+.remember-option input {
+  accent-color: var(--q-indigo);
+}
+
+/* Links */
+.register-text,
+.already-account {
+  color: var(--q-faint) !important;
+}
+
+/* Divider */
+.divider {
+  color: var(--q-faint) !important;
+}
+
+.divider::before,
+.divider::after {
+  background: var(--q-border) !important;
+}
+
+/* Footer */
+.login-footer,
+.registration-footer {
+  border-top-color: var(--q-border) !important;
+  color: var(--q-faint) !important;
+}
+
+.login-footer a:hover,
+.registration-footer a:hover {
+  color: var(--q-teal) !important;
+}
+/* ============================================================
+   12. LANDING PAGE — amp up the quantum hero
+   ============================================================ */
+.landing-page {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(124, 108, 255, 0.3), transparent 30%),
+    radial-gradient(circle at 90% 60%, rgba(34, 211, 238, 0.18), transparent 28%),
+    linear-gradient(180deg, #05060f 0%, #070a1c 50%, #0b0e24 100%) !important;
+  color: var(--q-ink) !important;
+}
+
+.landing-page::before {
+  background:
+    radial-gradient(circle at 8% 22%, rgba(124, 108, 255, 0.4), transparent 28%),
+    radial-gradient(circle at 92% 62%, rgba(34, 211, 238, 0.22), transparent 26%),
+    linear-gradient(180deg, #070a1c 0%, #05060f 45%, #0c1230 100%);
+}
+
+.landing-page::after {
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(152, 166, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(152, 166, 255, 0.12) 1px, transparent 1px);
+}
+
+.landing-brand span {
+  border-color: var(--q-cyan);
+  color: var(--q-teal);
+  font-family: var(--q-font-mono);
+  box-shadow: 0 0 22px rgba(34, 211, 238, 0.5);
+  animation: q-logo-pulse 3.4s ease-in-out infinite;
+}
+
+.landing-brand {
+  font-family: var(--q-font-orbital);
+  letter-spacing: 0.08em;
+}
+
+.landing-nav-links,
+.landing-lede,
+.landing-proof {
+  color: var(--q-muted) !important;
+}
+
+.landing-login {
+  color: var(--q-ink) !important;
+}
+
+.landing-nav-links a:hover,
+.landing-secondary {
+  color: var(--q-teal) !important;
+}
+
+.landing-nav-cta,
+.landing-primary {
+  background: var(--q-grad-primary) !important;
+  border: none !important;
+  border-radius: 12px;
+  font-family: var(--q-font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  box-shadow: 0 12px 34px rgba(109, 92, 252, 0.45), 0 0 24px rgba(34, 211, 238, 0.2) !important;
+}
+
+.landing-hero h1 {
+  font-size: clamp(52px, 8vw, 96px);
+}
+
+.landing-hero h1 em {
+  text-shadow: 0 0 32px rgba(124, 108, 255, 0.6);
+}
+
+.proof-dot {
+  background: var(--q-teal);
+  box-shadow: 0 0 10px var(--q-teal);
+}
+
+/* Orbit art glow */
+.landing-orbit-art .orbit {
+  border-color: rgba(124, 108, 255, 0.4);
+  box-shadow: 0 0 22px rgba(124, 108, 255, 0.18);
+  animation: q-orbit-breathe 6s ease-in-out infinite;
+}
+
+.landing-orbit-art .orbit-core {
+  border: 1px solid var(--q-teal);
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.7);
+  color: var(--q-ink-strong);
+  background: radial-gradient(circle, #3b4bd6, #151033);
+  animation: q-core-pulse 3s ease-in-out infinite;
+}
+
+.orbit-label {
+  color: var(--q-teal);
+  font-family: var(--q-font-mono);
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+}
+
+/* Stats band */
+.landing-stats {
+  background: rgba(13, 17, 38, 0.8) !important;
+  border-color: var(--q-border) !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4), 0 0 36px rgba(124, 108, 255, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.landing-stats strong {
+  color: var(--q-indigo) !important;
+  text-shadow: 0 0 16px rgba(124, 108, 255, 0.5);
+}
+
+.landing-stats span {
+  color: var(--q-muted) !important;
+}
+
+/* Concept cards */
+.concept-card {
+  border-color: var(--q-border) !important;
+  background: rgba(13, 17, 38, 0.78) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.4) !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.concept-card:hover,
+.concept-card.is-active {
+  transform: translateY(-6px);
+  border-color: rgba(125, 211, 252, 0.55) !important;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5), 0 0 34px rgba(34, 211, 238, 0.2) !important;
+}
+
+.concept-card span {
+  color: var(--q-cyan);
+  font-family: var(--q-font-mono);
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
+}
+
+.concept-card p {
+  color: var(--q-muted) !important;
+}
+
+.concept-card svg {
+  color: var(--q-teal) !important;
+  transition: transform 0.25s ease;
+}
+
+.concept-card:hover svg {
+  transform: translateX(4px);
+}
+
+/* Experience */
+.landing-experience {
+  background: linear-gradient(135deg, rgba(16, 21, 48, 0.96), rgba(10, 30, 50, 0.9)) !important;
+  border-top-color: rgba(77, 225, 208, 0.25) !important;
+  border-bottom-color: rgba(124, 108, 255, 0.25) !important;
+}
+
+.experience-points {
+  color: var(--q-teal) !important;
+}
+
+.experience-visual {
+  background: rgba(8, 12, 30, 0.85) !important;
+  border-color: rgba(124, 108, 255, 0.4) !important;
+}
+
+.mini-circuit {
+  color: var(--q-indigo) !important;
+}
+
+.probability-bars i {
+  background: var(--q-grad-accent) !important;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+/* Invite */
+.landing-invite {
+  background: linear-gradient(135deg, rgba(18, 25, 58, 0.97), rgba(10, 40, 55, 0.92)) !important;
+  border-color: rgba(77, 225, 208, 0.35) !important;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45), 0 0 40px rgba(77, 225, 208, 0.12) !important;
+}
+
+.landing-invite h2 em {
+  text-shadow: 0 0 30px rgba(232, 121, 249, 0.5);
+}
+
+.landing-footer {
+  color: var(--q-faint) !important;
+}
+
+.landing-footer span:first-child {
+  color: var(--q-ink) !important;
+  font-family: var(--q-font-orbital);
+  letter-spacing: 0.08em;
+}
+
+.landing-footer a {
+  color: var(--q-teal) !important;
+}
+/* ============================================================
+   13. INTERNAL HEADERS & HEROES — dark glass everywhere
+   ============================================================ */
+.progress-header,
+.profile-header,
+.ai-tutor-header,
+.algorithm-detail-header,
+.simple-tool-header,
+.learn-header {
+  background: rgba(7, 10, 26, 0.72) !important;
+  border-bottom: 1px solid var(--q-border) !important;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+}
+
+.progress-back,
+.profile-back,
+.ai-tutor-back,
+.algorithm-detail-back,
+.learn-back,
+.simple-tool-header a {
+  color: var(--q-teal) !important;
+}
+
+.progress-back:hover,
+.profile-back:hover,
+.ai-tutor-back:hover,
+.algorithm-detail-back:hover,
+.learn-back:hover {
+  color: var(--q-cyan) !important;
+}
+
+.progress-logo,
+.profile-brand,
+.algorithm-detail-logo,
+.learn-logo,
+.simple-tool-header {
+  color: var(--q-ink) !important;
+  font-family: var(--q-font-orbital);
+  letter-spacing: 0.06em;
+}
+
+/* Progress page */
+.progress-intro-icon,
+.ai-tutor-title-icon {
+  background: linear-gradient(135deg, rgba(124, 108, 255, 0.28), rgba(34, 211, 238, 0.1)) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-cyan) !important;
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.2);
+  animation: q-float 5s ease-in-out infinite;
+}
+
+.progress-intro h1,
+.progress-section-heading h2,
+.overall-progress-top h2 {
+  color: var(--q-ink) !important;
+  font-family: var(--q-font-display);
+}
+
+.progress-intro p:last-child,
+.profile-email,
+.profile-role,
+.profile-stat-card span,
+.profile-progress-card p {
+  color: var(--q-muted) !important;
+}
+
+.overall-percentage {
+  color: var(--q-cyan) !important;
+  text-shadow: 0 0 16px rgba(34, 211, 238, 0.5);
+  font-family: var(--q-font-display);
+}
+
+.progress-lecture-number {
+  background: rgba(124, 108, 255, 0.12) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-cyan) !important;
+  font-family: var(--q-font-mono);
+}
+
+.progress-lecture-top h3,
+.profile-identity h1,
+.profile-section-heading h2 {
+  color: var(--q-ink) !important;
+  font-family: var(--q-font-display);
+}
+
+.progress-lecture-main > p {
+  color: var(--q-muted) !important;
+}
+
+/* Profile page */
+.profile-hero {
+  border-radius: 20px;
+}
+
+.profile-avatar {
+  border: 1px solid var(--q-cyan);
+  color: var(--q-teal) !important;
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.4);
+}
+
+.profile-status {
+  box-shadow: 0 0 12px rgba(77, 225, 208, 0.25);
+}
+
+.profile-stat-icon {
+  background: linear-gradient(135deg, rgba(124, 108, 255, 0.25), rgba(34, 211, 238, 0.1)) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-cyan) !important;
+}
+
+.profile-stat-card strong {
+  color: var(--q-ink) !important;
+}
+
+.profile-action-card svg {
+  color: var(--q-cyan) !important;
+}
+
+.profile-section-heading span {
+  color: var(--q-teal) !important;
+}
+
+/* ============================================================
+   14. WORKSPACE READABILITY + EMERALD POLISH
+   ============================================================ */
+.app {
+  background:
+    radial-gradient(circle at 76% 6%, rgba(20, 184, 166, 0.18), transparent 30%),
+    radial-gradient(circle at 14% 84%, rgba(52, 211, 153, 0.08), transparent 24%),
+    var(--q-bg) !important;
+}
+
+.app::before {
+  background:
+    radial-gradient(circle at 74% 12%, rgba(20, 184, 166, 0.22), transparent 26%),
+    radial-gradient(circle at 16% 80%, rgba(59, 130, 246, 0.11), transparent 24%),
+    radial-gradient(circle at 90% 88%, rgba(52, 211, 153, 0.1), transparent 22%);
+}
+
+.page-content {
+  background: radial-gradient(circle at 70% 0%, rgba(20, 184, 166, 0.1), transparent 32%), transparent !important;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, rgba(7, 25, 24, 0.96), rgba(5, 16, 18, 0.96)) !important;
+  border-right-color: rgba(94, 234, 212, 0.16) !important;
+}
+
+.logo-icon {
+  background: linear-gradient(#0a1e1d, #0a1e1d) padding-box, var(--q-grad-primary) border-box;
+  box-shadow: 0 0 18px rgba(94, 234, 212, 0.3) !important;
+}
+
+.sidebar-item.selected {
+  background: linear-gradient(90deg, rgba(20, 184, 166, 0.2), rgba(59, 130, 246, 0.1)) !important;
+  box-shadow: inset 3px 0 0 var(--q-cyan), 0 0 22px rgba(94, 234, 212, 0.14);
+}
+
+.sidebar-item:not(.selected):hover {
+  background: rgba(94, 234, 212, 0.1) !important;
+}
+
+.navbar {
+  background: rgba(6, 25, 24, 0.78) !important;
+  border-bottom-color: rgba(94, 234, 212, 0.16) !important;
+}
+
+.navbar::after {
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.7), rgba(94, 234, 212, 0.8), transparent);
+}
+
+.context-icon,
+.notification-button,
+.navbar-profile {
+  border-color: rgba(94, 234, 212, 0.18) !important;
+  background: rgba(94, 234, 212, 0.06) !important;
+}
+
+.notification-button:hover,
+.navbar-profile:hover {
+  border-color: rgba(94, 234, 212, 0.42) !important;
+  background: rgba(94, 234, 212, 0.12) !important;
+}
+
+.dashboard-page,
+.learn-page,
+.progress-page,
+.profile-page,
+.algorithms-page,
+.algorithm-detail-page,
+.code-lab-page,
+.challenges-page,
+.ai-tutor-page,
+.simulator-page,
+.simple-tool-page {
+  color: var(--q-ink) !important;
+}
+
+.dashboard-page p,
+.learn-page p,
+.progress-page p,
+.profile-page p,
+.algorithms-page p,
+.algorithm-detail-page p,
+.code-lab-page p,
+.challenges-page p,
+.ai-tutor-page p,
+.simulator-page p,
+.simple-tool-page p {
+  color: var(--q-muted);
+}
+
+.dashboard-header h1,
+.section-heading h2,
+.dashboard-header-badge strong,
+.stat-content strong,
+.continue-content h3,
+.learning-progress-card strong,
+.lecture-card-content h3,
+.algorithm-card h3,
+.tool-content h3,
+.personalized-content h2 {
+  color: var(--q-ink-strong) !important;
+}
+
+.dashboard-eyebrow,
+.section-label,
+.dashboard-header h1 span,
+.section-link,
+.stat-icon,
+.tool-icon,
+.algorithm-icon,
+.continue-icon,
+.personalized-icon,
+.lecture-card-content > span,
+.algorithm-card-footer span:first-child,
+.lecture-progress-label,
+.algorithm-level {
+  color: var(--q-cyan) !important;
+}
+
+.dashboard-subtitle,
+.dashboard-header-badge span,
+.stat-content span,
+.continue-content p,
+.continue-meta,
+.lecture-card-footer,
+.algorithm-card-footer,
+.progress-card-bottom,
+.progress-card-top span,
+.search-result-content small,
+.search-result-type,
+.gamification-copy p:last-child,
+.gamification-progress span,
+.personalized-content p {
+  color: var(--q-muted) !important;
+}
+
+.dashboard-stat-card,
+.continue-learning-card,
+.learning-progress-card,
+.lecture-card,
+.tool-card,
+.algorithm-card,
+.personalized-card,
+.dashboard-cta,
+.gamification-card {
+  border-color: rgba(94, 234, 212, 0.16) !important;
+  background: linear-gradient(145deg, rgba(16, 36, 36, 0.88), rgba(8, 22, 25, 0.82)) !important;
+}
+
+.dashboard-search,
+.dashboard-search-results {
+  border-color: rgba(94, 234, 212, 0.2) !important;
+  background: rgba(10, 29, 28, 0.92) !important;
+  color: var(--q-ink) !important;
+}
+
+.dashboard-search input {
+  color: var(--q-ink) !important;
+  background: transparent !important;
+}
+
+.dashboard-search input::placeholder {
+  color: var(--q-faint) !important;
+}
+
+.dashboard-search-result:hover {
+  background: rgba(94, 234, 212, 0.08) !important;
+}
+
+.search-submit-button,
+.primary-button {
+  background: var(--q-grad-primary) !important;
+  color: #06211d !important;
+}
+
+.secondary-button {
+  border-color: rgba(94, 234, 212, 0.3) !important;
+  color: var(--q-cyan) !important;
+  background: rgba(94, 234, 212, 0.05) !important;
+}
+
+.gamification-card {
+  background: linear-gradient(110deg, rgba(15, 61, 57, 0.9), rgba(10, 30, 35, 0.86)) !important;
+}
+
+.gamification-badge {
+  color: var(--q-cyan) !important;
+  background: rgba(94, 234, 212, 0.1) !important;
+}
+
+.gamification-progress strong {
+  color: var(--q-teal) !important;
+}
+
+.progress-ring-simple {
+  border-color: rgba(94, 234, 212, 0.22) !important;
+  color: var(--q-cyan) !important;
+}
+
+.large-progress-bar,
+.lecture-progress {
+  background: rgba(94, 234, 212, 0.1) !important;
+}
+
+.ql-dashboard-footer-nav {
+  background: rgba(7, 25, 24, 0.94) !important;
+  border-color: rgba(94, 234, 212, 0.18) !important;
+}
+
+.ql-navigation-menu-button,
+.ql-footer-nav-button {
+  color: var(--q-muted) !important;
+}
+
+.ql-footer-nav-button:hover,
+.ql-footer-nav-button.active {
+  background: rgba(94, 234, 212, 0.1) !important;
+  color: var(--q-ink-strong) !important;
+}
+
+.ql-footer-nav-button.active .ql-footer-nav-icon {
+  background: var(--q-grad-primary) !important;
+  color: #06211d !important;
+}
+
+/* ============================================================
+   15. COMPLETE DARK WORKSPACE SURFACES
+   ============================================================ */
+.app,
+.page-content,
+.dashboard-page,
+.learn-page,
+.progress-page,
+.profile-page,
+.algorithms-page,
+.algorithm-detail-page,
+.code-lab-page,
+.challenges-page,
+.ai-tutor-page,
+.simulator-page,
+.studio-page,
+.simple-tool-page,
+.admin-page,
+.admin-dashboard-page {
+  background: transparent !important;
+  color: var(--q-ink) !important;
+}
+
+.app input,
+.app textarea,
+.app select,
+.app option,
+.app table,
+.app thead,
+.app tbody,
+.app tr,
+.app th,
+.app td {
+  color: var(--q-ink) !important;
+}
+
+.app input,
+.app textarea,
+.app select {
+  border-color: rgba(94, 234, 212, 0.2) !important;
+  background: rgba(7, 24, 24, 0.9) !important;
+  color: var(--q-ink) !important;
+}
+
+.app input::placeholder,
+.app textarea::placeholder {
+  color: var(--q-faint) !important;
+  opacity: 1;
+}
+
+.app input:focus,
+.app textarea:focus,
+.app select:focus {
+  border-color: var(--q-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.12), 0 0 18px rgba(94, 234, 212, 0.08) !important;
+}
+
+.app option {
+  background: #10201f !important;
+}
+
+.app table {
+  border-color: var(--q-border) !important;
+  background: rgba(10, 27, 26, 0.72) !important;
+}
+
+.app th {
+  background: rgba(20, 70, 65, 0.5) !important;
+  color: var(--q-teal) !important;
+  font-weight: 700;
+}
+
+.app td {
+  border-color: rgba(94, 234, 212, 0.1) !important;
+  background: transparent !important;
+}
+
+.app tr:hover td {
+  background: rgba(94, 234, 212, 0.06) !important;
+}
+
+.algorithms-hero-pro,
+.algorithm-hero,
+.algorithm-hero-section,
+.ai-tutor-header,
+.ai-tutor-page,
+.chat-container,
+.ai-empty-state,
+.algorithm-hero-core,
+.algorithm-floating-node,
+.algorithm-overview,
+.algorithm-overview-card,
+.algorithm-card,
+.algorithm-detail-card,
+.profile-card,
+.profile-panel,
+.progress-card,
+.progress-panel,
+.assessment-card,
+.challenge-card,
+.admin-card,
+.modal-content,
+.modal-card,
+.dialog-content,
+.drawer-content,
+.simple-tool-header,
+.editor-panel,
+.inspector-panel,
+.circuit-visual-card,
+.code-lab-ai,
+.execution-result {
+  background: linear-gradient(145deg, rgba(16, 36, 36, 0.94), rgba(7, 21, 24, 0.9)) !important;
+  border-color: rgba(94, 234, 212, 0.16) !important;
+  color: var(--q-ink) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.3), inset 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+.algorithms-hero-pro,
+.ai-tutor-header,
+.simple-tool-header {
+  border-bottom-color: rgba(94, 234, 212, 0.16) !important;
+}
+
+.algorithms-hero-pro::before,
+.algorithm-hero::before {
+  background: rgba(20, 184, 166, 0.14) !important;
+}
+
+.algorithms-hero-content h1,
+.algorithms-hero-content > p,
+.algorithm-hero-content h1,
+.algorithm-hero-content > p,
+.ai-tutor-title h1,
+.ai-tutor-title span,
+.ai-empty-state h2,
+.ai-empty-state p,
+.tool-hero h1,
+.tool-hero p,
+.code-lab-ai h2,
+.inspector-panel h2,
+.circuit-visual-heading h2 {
+  color: var(--q-ink) !important;
+}
+
+.algorithms-hero-content > p,
+.algorithm-hero-content > p,
+.ai-tutor-title span,
+.ai-empty-state p,
+.tool-hero p,
+.visual-caption,
+.example-label,
+.inspector-empty p,
+.code-lab-ai p {
+  color: var(--q-muted) !important;
+}
+
+.algorithms-kicker,
+.explorer-kicker,
+.algorithm-hero-kicker,
+.ai-tutor-title p,
+.tool-kicker,
+.algorithm-hero-meta,
+.algorithm-hero-meta svg {
+  color: var(--q-cyan) !important;
+}
+
+.algorithm-primary-action,
+.algorithm-hero-actions button,
+.code-lab-ai button,
+.tool-actions button.primary,
+.admin-action,
+.modal-actions button.primary {
+  border-color: transparent !important;
+  background: var(--q-grad-primary) !important;
+  color: #06211d !important;
+}
+
+.algorithm-hero-core,
+.algorithm-floating-node,
+.ai-tutor-title-icon,
+.ai-empty-icon,
+.tool-orb,
+.inspector-empty {
+  border-color: rgba(94, 234, 212, 0.3) !important;
+  background: rgba(12, 39, 37, 0.8) !important;
+  color: var(--q-cyan) !important;
+}
+
+.chat-messages,
+.chat-input,
+.chat-input textarea,
+.message-bubble,
+.ai-topic-hints span,
+.code-editor,
+.circuit-preview,
+.tool-output,
+.inspector-empty,
+.count-row > div {
+  background: rgba(6, 20, 22, 0.88) !important;
+  color: var(--q-ink) !important;
+  border-color: rgba(94, 234, 212, 0.14) !important;
+}
+
+.ai-topic-hints span,
+.example-list button,
+.tool-actions button,
+.studio-tabs button,
+.simple-tool-header a {
+  border-color: rgba(94, 234, 212, 0.24) !important;
+  background: rgba(94, 234, 212, 0.06) !important;
+  color: var(--q-cyan) !important;
+}
+
+.markdown-answer code {
+  background: rgba(94, 234, 212, 0.12) !important;
+  color: var(--q-teal) !important;
+}
+
+.markdown-answer pre {
+  background: #061416 !important;
+  color: var(--q-ink) !important;
+}
+
+.tool-error,
+.tool-success,
+.execution-result,
+.alert,
+.error-message,
+.success-message {
+  background: rgba(12, 35, 35, 0.92) !important;
+  color: var(--q-ink) !important;
+  border-color: rgba(94, 234, 212, 0.2) !important;
+}
+
+.tool-error,
+.error-message {
+  border-color: rgba(251, 113, 133, 0.42) !important;
+  color: #fda4af !important;
+}
+
+.tool-success,
+.success-message {
+  border-color: rgba(52, 211, 153, 0.42) !important;
+  color: #a7f3d0 !important;
+}
+
+.app .ql-dashboard-footer-nav {
+  background: rgba(7, 25, 24, 0.96) !important;
+}
+
+/* AI Tutor */
+.chat-container {
+  border-radius: 20px;
+}
+
+.ai-empty-icon {
+  background: linear-gradient(135deg, rgba(124, 108, 255, 0.3), rgba(232, 121, 249, 0.15)) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-violet) !important;
+  box-shadow: 0 0 26px rgba(232, 121, 249, 0.25);
+  animation: q-float 5s ease-in-out infinite;
+}
+
+.ai-empty-state h2 {
+  color: var(--q-ink) !important;
+  font-family: var(--q-font-display);
+}
+
+.ai-empty-state p {
+  color: var(--q-muted) !important;
+}
+
+.ai-topic-hints span {
+  background: rgba(77, 225, 208, 0.08) !important;
+  border: 1px solid rgba(77, 225, 208, 0.3) !important;
+  color: var(--q-teal) !important;
+  font-family: var(--q-font-mono);
+  transition: all 0.2s ease;
+}
+
+.ai-topic-hints span:hover {
+  border-color: var(--q-cyan) !important;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.3);
+}
+
+.message-role {
+  color: var(--q-faint) !important;
+  font-family: var(--q-font-mono);
+}
+
+.user-message .message-text {
+  background: linear-gradient(120deg, rgba(124, 108, 255, 0.22), rgba(34, 211, 238, 0.12)) !important;
+  color: var(--q-ink) !important;
+  border: 1px solid rgba(124, 108, 255, 0.3) !important;
+}
+
+.assistant-message .message-text {
+  background: rgba(17, 23, 50, 0.85) !important;
+  border: 1px solid var(--q-border) !important;
+  color: var(--q-ink) !important;
+}
+
+.message-text h1,
+.message-text h2,
+.message-text h3,
+.message-text strong {
+  color: var(--q-ink) !important;
+}
+
+.message-text code {
+  background: rgba(124, 108, 255, 0.14) !important;
+  color: var(--q-teal);
+}
+
+.message-text pre {
+  background: #060912 !important;
+  border: 1px solid rgba(124, 108, 255, 0.25) !important;
+  box-shadow: inset 0 0 18px rgba(124, 108, 255, 0.12);
+}
+
+.message-text blockquote {
+  border-left-color: var(--q-cyan) !important;
+  color: var(--q-muted) !important;
+}
+/* Algorithms / Algorithm Detail */
+.algorithms-hero-pro {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(124, 108, 255, 0.3), transparent 34%),
+    radial-gradient(circle at 12% 88%, rgba(34, 211, 238, 0.14), transparent 28%),
+    linear-gradient(135deg, #0a0d1f, #0f1330) !important;
+  border-bottom: 1px solid var(--q-border) !important;
+}
+
+.algorithms-hero-pro::before {
+  background: rgba(124, 108, 255, 0.16);
+  box-shadow: 0 0 60px rgba(124, 108, 255, 0.2);
+}
+
+.algorithms-hero-content h1 {
+  color: var(--q-ink) !important;
+  text-shadow: 0 0 30px rgba(124, 108, 255, 0.4);
+}
+
+.algorithms-hero p,
+.algorithms-hero-content p {
+  color: var(--q-muted) !important;
+}
+
+.algorithm-detail-page {
+  background: transparent !important;
+}
+
+.algorithm-detail-hero p {
+  color: var(--q-muted) !important;
+}
+
+/* Studio */
+.studio-level {
+  backdrop-filter: blur(12px);
+}
+
+.studio-level strong {
+  color: var(--q-ink) !important;
+}
+
+.studio-level > span {
+  color: var(--q-muted) !important;
+}
+
+.studio-level > div {
+  background: rgba(141, 130, 255, 0.14) !important;
+}
+
+.studio-tabs button.active {
+  color: var(--q-ink) !important;
+  border-bottom-color: var(--q-indigo) !important;
+}
+
+.studio-tabs button span {
+  color: var(--q-faint) !important;
+}
+
+.studio-explanation h2 {
+  color: var(--q-ink) !important;
+  font-family: var(--q-font-display);
+}
+
+.studio-explanation > p:not(.studio-kicker) {
+  color: var(--q-muted) !important;
+}
+
+.studio-hint {
+  color: var(--q-cyan) !important;
+}
+
+.studio-success {
+  color: var(--q-teal) !important;
+}
+
+.state-visual {
+  background: rgba(8, 12, 30, 0.9) !important;
+}
+
+.state-orbit {
+  border-color: rgba(124, 108, 255, 0.4) !important;
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+  animation: q-orbit-breathe 7s ease-in-out infinite;
+}
+
+/* Code Lab / Challenges */
+.simple-tool-page {
+  background: transparent !important;
+  color: var(--q-ink) !important;
+}
+
+.tool-hero p {
+  color: var(--q-muted) !important;
+}
+
+.tool-orb {
+  border-color: rgba(124, 108, 255, 0.5) !important;
+  color: var(--q-cyan) !important;
+  box-shadow: 0 0 0 14px rgba(124, 108, 255, 0.14), 0 0 0 15px rgba(124, 108, 255, 0.1), 0 0 30px rgba(124, 108, 255, 0.25) !important;
+  animation: q-float 6s ease-in-out infinite;
+}
+
+.example-label {
+  color: var(--q-faint) !important;
+}
+
+.panel-heading {
+  border-bottom-color: var(--q-border) !important;
+  color: var(--q-muted) !important;
+}
+
+.code-editor {
+  background: #070a1a !important;
+  color: #67e8f9 !important;
+}
+
+.circuit-visual-heading > span {
+  color: var(--q-cyan) !important;
+}
+
+.visual-wire {
+  color: var(--q-teal) !important;
+}
+
+.wire-line {
+  background: linear-gradient(90deg, rgba(124, 108, 255, 0.6), var(--q-cyan)) !important;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+}
+
+.visual-gate {
+  border-color: var(--q-cyan) !important;
+  color: var(--q-teal) !important;
+  background: linear-gradient(135deg, rgba(124, 108, 255, 0.18), rgba(34, 211, 238, 0.08)) !important;
+  box-shadow: 0 0 0 5px rgba(124, 108, 255, 0.1), 0 0 20px rgba(34, 211, 238, 0.2);
+}
+
+.visual-gate b,
+.visual-gate small {
+  font-family: var(--q-font-mono);
+}
+
+.visual-caption,
+.markdown-answer p {
+  color: var(--q-muted) !important;
+}
+
+.markdown-answer h1,
+.markdown-answer h2,
+.markdown-answer h3 {
+  color: var(--q-ink) !important;
+}
+
+.markdown-answer code {
+  background: rgba(77, 225, 208, 0.12) !important;
+  color: var(--q-teal);
+}
+
+.markdown-answer pre {
+  background: #060912 !important;
+  color: #67e8f9;
+}
+
+/* Simulator scene — extra glow */
+.quantum-scene {
+  border-radius: 18px;
+}
+
+.scene-core {
+  box-shadow: 0 0 44px rgba(110, 143, 255, 0.9);
+  animation: q-core-pulse 2.8s ease-in-out infinite;
+}
+
+.scene-status {
+  box-shadow: 0 0 10px rgba(77, 225, 208, 0.35);
+}
+
+.scene-circuit-trace i.lit {
+  box-shadow: 0 0 12px #69dfc8;
+  animation: q-dot-pulse 1.6s ease-in-out infinite;
+}
+
+/* Admin */
+.admin-section-placeholder h1 {
+  font-family: var(--q-font-display);
+  color: var(--q-ink);
+}
+
+.admin-section-placeholder p {
+  color: var(--q-muted);
+}
+/* ============================================================
+   14. ANIMATIONS — keyframes
+   ============================================================ */
+@keyframes q-aurora-drift {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1) translate3d(1.5%, -1%, 0); filter: hue-rotate(14deg); }
+  100% { transform: scale(1.06) translate3d(-1%, 1%, 0); }
+}
+
+@keyframes q-grid-pan {
+  to { background-position: 56px 28px; }
+}
+
+@keyframes q-scan-sweep {
+  0% { top: -34%; }
+  100% { top: 112%; }
+}
+
+@keyframes q-text-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes q-reveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes q-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes q-logo-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(124, 108, 255, 0.4); }
+  50% { box-shadow: 0 0 34px rgba(124, 108, 255, 0.85); transform: scale(1.06); }
+}
+
+@keyframes q-core-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+
+@keyframes q-orbit-breathe {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes q-orbit-ring {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes q-dot-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+@keyframes q-btn-sheen {
+  0%, 100% { left: -80%; }
+  55% { left: 110%; }
+}
+
+@keyframes q-progress-flow {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+@keyframes q-hairline-flow {
+  0% { opacity: 0.35; }
+  50% { opacity: 1; }
+  100% { opacity: 0.35; }
+}
+
+@keyframes q-spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   15. LIGHT-SURFACE SAFETY NET — nothing stays white
+   ============================================================ */
+[class$="-card"]:not(.glass),
+[class*="panel"],
+[class*="container"],
+[class*="box"],
+[class*="chip"] {
+  color: var(--q-ink);
+  border-radius: 14px;
+}
+
+input,
+select,
+textarea {
+  background: rgba(13, 17, 38, 0.8) !important;
+  color: var(--q-ink) !important;
+  caret-color: var(--q-cyan);
+}
+
+select option {
+  background: #0a0d1f;
+  color: var(--q-ink);
+}
+
+/* ============================================================
+   16. GLOBAL DARK THEME SAFETY NET
+   Overrides page-specific light/white tab/card styles so the
+   whole app matches the same dark quantum design.
+   ============================================================ */
+html,
+body,
+#root,
+.app,
+.page-content,
+.content,
+.dashboard-page,
+.learn-page,
+.progress-page,
+.profile-page,
+.algorithms-page,
+.algorithm-detail-page,
+.code-lab-page,
+.challenges-page,
+.ai-tutor-page,
+.simulator-page,
+.simple-tool-page,
+.studio-page,
+.landing-page,
+.login-page,
+.registration-page {
+  background: var(--q-bg) !important;
+  color: var(--q-ink) !important;
+}
+
+.studio-page,
+.studio-hero,
+.studio-level,
+.studio-tabs,
+.studio-card,
+.studio-explanation,
+.state-visual,
+.studio-tabs button,
+.studio-tabs button.active,
+.studio-tabs button span,
+.studio-kicker,
+.studio-hint,
+.studio-success,
+.studio-action,
+.studio-explanation h2,
+.studio-explanation > p:not(.studio-kicker) {
+  background: transparent !important;
+  color: var(--q-ink) !important;
+}
+
+.studio-tabs {
+  border-bottom-color: var(--q-border) !important;
+}
+
+.studio-tabs button {
+  background: rgba(94, 234, 212, 0.06) !important;
+  color: var(--q-muted) !important;
+  border: 1px solid rgba(94, 234, 212, 0.16) !important;
+  border-bottom-color: transparent !important;
+}
+
+.studio-tabs button.active {
+  background: rgba(124, 108, 255, 0.14) !important;
+  color: var(--q-ink) !important;
+  border-bottom-color: rgba(124, 108, 255, 0.5) !important;
+}
+
+.studio-tabs button span {
+  color: var(--q-faint) !important;
+}
+
+.studio-level,
+.studio-card,
+.state-visual,
+.studio-explanation {
+  background: linear-gradient(145deg, rgba(16, 36, 36, 0.94), rgba(7, 21, 24, 0.9)) !important;
+  border-color: var(--q-border) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18) !important;
+}
+
+.studio-level strong {
+  color: var(--q-ink) !important;
+}
+
+.studio-level > span {
+  color: var(--q-muted) !important;
+}
+
+.studio-level > div {
+  background: rgba(94, 234, 212, 0.12) !important;
+}
+
+.studio-level i {
+  background: linear-gradient(90deg, #3b82f6, #5eead4) !important;
+}
+
+button[role="tab"],
+[role="tab"],
+.tab-button,
+.nav-tab {
+  background: rgba(124, 108, 255, 0.08) !important;
+  color: var(--q-ink) !important;
+  border: 1px solid var(--q-border) !important;
+}
+
+button[role="tab"][aria-selected="true"],
+[role="tab"][aria-selected="true"],
+.tab-button.active,
+.nav-tab.active {
+  background: rgba(124, 108, 255, 0.18) !important;
+  color: var(--q-ink) !important;
+  border-color: rgba(94, 234, 212, 0.28) !important;
+}
+
+/* ============================================================
+   17. ACCESSIBILITY — honour reduced-motion preferences
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   17. RESPONSIVE TWEAKS
+   ============================================================ */
+@media (max-width: 900px) {
+  h1 {
+    font-size: clamp(30px, 6vw, 44px);
+  }
+}
+
+@media (max-width: 700px) {
+  .landing-hero h1 {
+    font-size: clamp(40px, 11vw, 56px);
+  }
+
+  .navbar {
+    background: rgba(6, 8, 20, 0.85) !important;
+  }
+
+  .login-container,
+  .registration-container {
+    padding-top: 20px;
+  }
+}
+
+/* ============================================================
+   18. CIRCUIT SIMULATOR — DARK QUANTUM HARMONIZATION
+   Fixes white-on-white text issues and provides a sleek UI.
+   ============================================================ */
+.circuit-simulator-page {
+  background: var(--q-bg) !important;
+  color: var(--q-ink) !important;
+}
+
+.simulator-intro {
+  background: rgba(16, 32, 31, 0.75) !important;
+  border: 1px solid rgba(94, 234, 212, 0.22) !important;
+  color: #e7faf4 !important;
+  backdrop-filter: blur(12px);
+}
+
+.intro-icon {
+  background: rgba(94, 234, 212, 0.12) !important;
+  color: #5eead4 !important;
+}
+
+.simulator-card {
+  background: rgba(16, 32, 31, 0.82) !important;
+  border: 1px solid rgba(94, 234, 212, 0.2) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  color: #e7faf4 !important;
+  backdrop-filter: blur(12px);
+}
+
+.simulator-card-header {
+  border-bottom: 1px solid rgba(94, 234, 212, 0.15) !important;
+}
+
+.simulator-card h1,
+.simulator-card h2,
+.simulator-card h3,
+.simulator-card h4,
+.simulator-card h5,
+.simulator-card strong,
+.simulator-card label {
+  color: #ffffff !important;
+}
+
+.simulator-card p,
+.simulator-card span,
+.simulator-card small,
+.card-description {
+  color: #9abbb3 !important;
+}
+
+.simulator-card .eyebrow {
+  color: #5eead4 !important;
+}
+
+/* Gate Library Items */
+.gate-library-item {
+  background: rgba(17, 43, 43, 0.65) !important;
+  border: 1px solid rgba(94, 234, 212, 0.2) !important;
+  color: #e7faf4 !important;
+}
+
+.gate-library-item:hover {
+  background: rgba(94, 234, 212, 0.15) !important;
+  border-color: rgba(94, 234, 212, 0.45) !important;
+}
+
+.gate-library-item.selected {
+  background: rgba(94, 234, 212, 0.22) !important;
+  border-color: #5eead4 !important;
+  box-shadow: 0 0 16px rgba(94, 234, 212, 0.25) !important;
+}
+
+.gate-symbol {
+  background: rgba(6, 19, 18, 0.85) !important;
+  border: 1px solid rgba(94, 234, 212, 0.3) !important;
+  color: #5eead4 !important;
+}
+
+.gate-info strong {
+  color: #ffffff !important;
+}
+
+.gate-info small {
+  color: #70918a !important;
+}
+
+.gate-library-help,
+.pending-gate-message {
+  background: rgba(16, 32, 31, 0.9) !important;
+  border: 1px solid rgba(94, 234, 212, 0.25) !important;
+  color: #9abbb3 !important;
+}
+
+/* Circuit Grid / Cells */
+.circuit-grid {
+  background: rgba(6, 19, 18, 0.75) !important;
+  border: 1px solid rgba(94, 234, 212, 0.18) !important;
+}
+
+.circuit-cell {
+  border-color: rgba(94, 234, 212, 0.1) !important;
+}
+
+.wire-line {
+  background: rgba(94, 234, 212, 0.35) !important;
+}
+
+.placed-gate {
+  background: linear-gradient(135deg, #1d3d87, #3b82f6) !important;
+  border: 1px solid #5eead4 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+.qubit-label {
+  color: #5eead4 !important;
+  font-weight: 600 !important;
+}
+
+/* AI Panel & Results */
+.ai-assistant-card,
+.result-card,
+.state-vector-card {
+  background: rgba(16, 32, 31, 0.82) !important;
+  border: 1px solid rgba(94, 234, 212, 0.2) !important;
+  color: #e7faf4 !important;
+}
+
+.ai-output-box,
+.prediction-box {
+  background: rgba(6, 19, 18, 0.85) !important;
+  border: 1px solid rgba(94, 234, 212, 0.2) !important;
+  color: #e7faf4 !important;
+}
+
+.ai-output-box p,
+.prediction-box p {
+  color: #c0d8d4 !important;
+}
+
+/* Controls / Selects / Inputs */
+.simulator-select,
+.simulator-input,
+select.circuit-select,
+input.circuit-input {
+  background: rgba(6, 19, 18, 0.9) !important;
+  border: 1px solid rgba(94, 234, 212, 0.3) !important;
+  color: #e7faf4 !important;
+}
+
+.simulator-select option {
+  background: #061312 !important;
+  color: #e7faf4 !important;
+}
+
+/* ============================================================
+   19. GLOBAL HIGH-CONTRAST FALLBACK RULES
+   If any box is white/light, force its font dark.
+   If any box is dark, force its font light.
+   ============================================================ */
+.bg-white,
+.card-light,
+.white-box,
+[style*="background: #fff"],
+[style*="background: white"],
+[style*="background-color: #fff"],
+[style*="background-color: white"],
+[style*="background: rgb(255, 255, 255)"],
+[style*="background-color: rgb(255, 255, 255)"] {
+  color: #0f172a !important;
+}
+
+.bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5,
+.bg-white p, .bg-white span, .bg-white strong, .bg-white small, .bg-white div,
+[style*="background: #fff"] h1, [style*="background: #fff"] h2,
+[style*="background: #fff"] h3, [style*="background: #fff"] p,
+[style*="background: #fff"] span, [style*="background: #fff"] strong,
+[style*="background: white"] h1, [style*="background: white"] p,
+[style*="background: white"] span, [style*="background: white"] strong {
+  color: #0f172a !important;
+}

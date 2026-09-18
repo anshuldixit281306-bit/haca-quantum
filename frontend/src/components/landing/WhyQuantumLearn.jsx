@@ -1,0 +1,5 @@
+import { BrainCircuit, Lightbulb, MousePointerClick, Sparkles } from "lucide-react";
+
+const benefits = [[Lightbulb, "Simple", "Complex quantum concepts explained clearly.", "#00e5ff"], [MousePointerClick, "Interactive", "Learn by seeing, exploring and practicing.", "#3b82f6"], [BrainCircuit, "Personalized", "AI-powered guidance based on learning needs.", "#8b5cf6"], [Sparkles, "Engaging", "Gamification makes learning more motivating.", "#a855f7"]];
+
+export default function WhyQuantumLearn() { return <section id="about" className="ql-new-section"><div className="ql-new-section-inner"><div className="ql-new-heading ql-new-reveal"><small>WHY QUANTUMLEARN</small><h2>Built for the <span>Quantum Generation</span></h2></div><div className="ql-new-benefit-grid">{benefits.map(([Icon, title, description, color]) => <article className="ql-new-card ql-new-benefit ql-new-reveal" key={title}><div className="ql-new-icon" style={{ color, borderColor: `${color}45`, background: `${color}15` }}><Icon /></div><h3>{title}</h3><p>{description}</p></article>)}</div></div></section>; }

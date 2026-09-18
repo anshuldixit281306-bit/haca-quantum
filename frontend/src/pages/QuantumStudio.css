@@ -1,0 +1,332 @@
+.studio-page{max-width:1080px;margin:auto;padding-bottom:60px}.studio-hero{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:40px}.studio-kicker{display:flex;align-items:center;gap:8px;color:#0f7c79;font:11px "IBM Plex Mono",monospace;letter-spacing:.03em}.studio-hero h1{margin:15px 0;font:500 clamp(48px,7vw,76px)/.95 "IBM Plex Serif",serif;letter-spacing:-.05em}.studio-hero h1 em{color:#756be8}.studio-hero>div>p:last-child{max-width:540px;color:#6b6e76;line-height:1.7}.studio-level{min-width:190px;padding:17px;border:1px solid #e6e5e0;background:#fff;color:#756be8}.studio-level>span{display:flex;justify-content:space-between;color:#6b6e76;font-size:11px}.studio-level strong{color:#171820;font-size:16px}.studio-level>div{height:5px;margin-top:16px;background:#eceaf7}.studio-level i{display:block;height:100%;background:#756be8}.studio-tabs{display:flex;border-bottom:1px solid #e6e5e0}.studio-tabs button{display:flex;gap:12px;padding:15px 22px;color:#6b6e76;font-size:13px}.studio-tabs button span{color:#9a9ca3;font:11px "IBM Plex Mono",monospace}.studio-tabs button.active{color:#171820;border-bottom:2px solid #756be8}.studio-card{display:grid;grid-template-columns:.9fr 1.1fr;min-height:430px;border:1px solid #e6e5e0;border-top:0;background:#fff}.studio-explanation{padding:55px 45px}.studio-explanation h2{margin:12px 0;font:500 38px "IBM Plex Serif",serif}.studio-explanation>p:not(.studio-kicker){color:#6b6e76;line-height:1.7}.studio-hint{display:flex;gap:8px;margin:28px 0;color:#756be8;font-size:12px;line-height:1.5}.studio-action{display:inline-flex;gap:8px;align-items:center;padding:11px 15px;background:#362f78;color:#fff;font-size:13px}.studio-success{display:flex;gap:6px;align-items:center;margin-top:16px;color:#0f7c79;font-size:12px}.state-visual{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:35px;background:#f7f6fc}.state-orbit{position:relative;width:270px;height:270px;border:1px solid color-mix(in srgb,var(--accent) 45%,white);border-radius:50%}.state-orbit:before,.state-orbit:after{position:absolute;content:"";inset:30px;border:1px solid color-mix(in srgb,var(--accent) 25%,white);border-radius:50%;transform:rotate(55deg)}.state-orbit:after{transform:rotate(-55deg)}.state-center{position:absolute;top:calc(50% - 19px);left:calc(50% - 19px);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;font:italic 21px "IBM Plex Serif",serif}.state-vector{position:absolute;left:50%;bottom:50%;width:2px;height:103px;background:var(--accent);transform-origin:bottom;box-shadow:0 0 12px var(--accent)}.state-vector:after{position:absolute;top:-4px;left:-4px;width:10px;height:10px;content:"";background:var(--accent);border-radius:50%}.state-node{position:absolute;color:#6b6e76;font:13px "IBM Plex Mono",monospace}.node-top{top:-28px;left:calc(50% - 12px)}.node-bottom{bottom:-28px;left:calc(50% - 12px)}.angle-control,.probability-readout{width:270px;color:#6b6e76;font-size:12px}.angle-control strong,.probability-readout strong{float:right;color:#171820;font-family:"IBM Plex Mono",monospace}.angle-control input{display:block;width:100%;margin-top:16px;accent-color:var(--accent)}.probability-readout>span,.probability-readout>strong{display:block;float:none}.probability-readout>strong{margin-top:6px;font-size:18px}.probability-readout>div{display:flex;gap:3px;margin-top:16px}.probability-readout i{height:8px;background:var(--accent)}.studio-footer{display:flex;justify-content:space-between;padding-top:20px;color:#9a9ca3;font-size:11px}.studio-footer button{display:flex;gap:7px;align-items:center;color:#756be8;font-size:12px}
+@media(max-width:720px){.studio-hero{display:block}.studio-level{margin-top:25px}.studio-tabs button{padding:13px 9px;font-size:11px}.studio-card{grid-template-columns:1fr}.studio-explanation{padding:35px 25px}.state-visual{padding:40px 20px}.studio-footer{display:block}.studio-footer span{display:block;margin-top:15px}}
+
+/* ============================================================
+   3D QUANTUM LAB EXTENSION
+   ============================================================ */
+.quantum-lab-3d-wrapper {
+  margin-top: 56px;
+  background: #080c16;
+  border: 1px solid #1b2740;
+  border-radius: 18px;
+  padding: 24px;
+  color: #eef2fb;
+}
+
+.lab-3d-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #1b2740;
+  padding-bottom: 16px;
+}
+
+.lab-3d-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 6px 0;
+}
+
+.lab-3d-sub {
+  font-size: 13px;
+  color: #9aa7c2;
+  margin: 0;
+  max-width: 600px;
+}
+
+.lab-3d-container {
+  display: flex;
+  min-height: 480px;
+  border: 1px solid #1b2740;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #060913;
+}
+
+.lab-3d-viewport {
+  flex: 1 1 500px;
+  position: relative;
+  min-height: 420px;
+}
+
+.lab-3d-hint {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-size: 11px;
+  color: #5c6a86;
+  pointer-events: none;
+}
+
+.lab-3d-measure-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #0f2d31;
+  border: 1px solid #2a5a5f;
+  color: #8ff0f5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lab-3d-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 18px;
+  background: #080c16;
+}
+
+.lab-bell-eq {
+  font-size: 15px;
+  color: #c7d2e6;
+  font-family: monospace;
+}
+
+.lab-ent-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+.lab-ent-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.lab-ent-name {
+  font-size: 12px;
+  color: #9aa7c2;
+  font-weight: 600;
+}
+
+.lab-ent-note {
+  font-size: 13px;
+  color: #c7d2e6;
+  text-align: center;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.lab-3d-sidebar {
+  width: 320px;
+  flex: 0 0 320px;
+  border-left: 1px solid #1b2740;
+  padding: 16px;
+  overflow-y: auto;
+  background: #080c16;
+}
+
+.lab-3d-section {
+  margin-bottom: 20px;
+}
+
+.lab-3d-section-title {
+  font-size: 11.5px;
+  color: #5fd8e0;
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lab-3d-eq {
+  font-size: 12.5px;
+  background: #0a0f1e;
+  border: 1px solid #1b2740;
+  border-radius: 8px;
+  padding: 9px 12px;
+  margin-bottom: 10px;
+  font-family: monospace;
+  color: #e7faf4;
+}
+
+@media (max-width: 860px) {
+  .lab-3d-container {
+    flex-direction: column;
+  }
+  .lab-3d-sidebar {
+    width: 100%;
+    flex: auto;
+    border-left: none;
+    border-top: 1px solid #1b2740;
+  }
+}
+
+/* ——— Shared Sidebar UI Components ——— */
+.qs-scroll { scrollbar-width: thin; scrollbar-color: #1f3050 transparent; }
+
+/* Segmented toggle */
+.qs-seg {
+  display: flex;
+  gap: 4px;
+  background: #0d1523;
+  border: 1px solid #1b2740;
+  border-radius: 10px;
+  padding: 4px;
+}
+.qs-seg button {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #8b98b4;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: all 0.18s;
+}
+.qs-seg button:hover { color: #dbe4f5; background: #16243a; }
+.qs-seg button.active {
+  background: #1a3a5c;
+  color: #5fd8e0;
+  box-shadow: 0 0 0 1px #2a5a7f;
+}
+
+/* Gate / Preset buttons */
+.qs-btn {
+  padding: 8px 6px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #c7d2e6;
+  background: #0d1523;
+  border: 1px solid #1b2740;
+  transition: all 0.15s;
+  text-align: center;
+}
+.qs-btn:hover { background: #162340; border-color: #2a4060; color: #5fd8e0; }
+.qs-btn.active { background: #0f3040; border-color: #5fd8e0; color: #5fd8e0; }
+.qs-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.qs-btn-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 12px;
+  font-size: 13px;
+}
+
+/* Probability bar tracks */
+.qs-bar-track {
+  height: 7px;
+  border-radius: 4px;
+  background: #101c2e;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.qs-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.3s ease;
+  min-width: 2px;
+}
+
+/* Range slider */
+.qs-slider {
+  width: 100%;
+  accent-color: #5fd8e0;
+  cursor: pointer;
+}
+
+/* Entanglement orbs */
+.qs-orb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: monospace;
+  border: 2px solid;
+  transition: all 0.35s;
+}
+.qs-orb.pending {
+  background: radial-gradient(circle, #1a2c44, #0a1628);
+  border-color: #2a4060;
+  color: #8b98b4;
+  animation: qs-pulse 2.5s infinite;
+}
+.qs-orb.zero {
+  background: radial-gradient(circle, #0d3040, #061828);
+  border-color: #5fd8e0;
+  color: #5fd8e0;
+  box-shadow: 0 0 22px rgba(95, 216, 224, 0.35);
+}
+.qs-orb.one {
+  background: radial-gradient(circle, #2d1a10, #1a0e08);
+  border-color: #e8a457;
+  color: #e8a457;
+  box-shadow: 0 0 22px rgba(232, 164, 87, 0.35);
+}
+@keyframes qs-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(95,216,224,0.15); }
+  50% { box-shadow: 0 0 0 10px rgba(95,216,224,0.0); }
+}
+
+/* Entanglement link */
+.qs-link {
+  height: 3px;
+  background: linear-gradient(90deg, #5fd8e0 0%, #b58cff 50%, #e8a457 100%);
+  border-radius: 2px;
+  opacity: 0.55;
+  transition: opacity 0.3s;
+}
+.qs-link.pulse {
+  animation: link-pulse 0.5s ease;
+}
+@keyframes link-pulse {
+  0% { opacity: 0.55; }
+  50% { opacity: 1; box-shadow: 0 0 16px #5fd8e0; }
+  100% { opacity: 0.55; }
+}
+
+/* Teleportation SVG wires & gates */
+.qs-tele-wire {
+  stroke: #1b2740;
+  stroke-width: 2;
+  fill: none;
+}
+.qs-tele-wire-active {
+  stroke: #5fd8e0;
+  stroke-width: 2;
+  fill: none;
+}
+.qs-tele-gate {
+  fill: #0d1523;
+  stroke: #2a4060;
+}
+.qs-tele-gate-active {
+  fill: #0f3040;
+  stroke: #5fd8e0;
+}
+.qs-tele-text {
+  fill: #c7d2e6;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: monospace;
+}
+.qs-tele-label {
+  fill: #9abbb3;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+

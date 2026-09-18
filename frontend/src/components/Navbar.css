@@ -1,0 +1,378 @@
+/* ================================
+   QUANTUMLEARN NAVBAR
+   White + Light Blue Theme
+================================ */
+
+.navbar {
+  width: auto;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e6eef7;
+
+  box-sizing: border-box;
+
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ================================
+   BRAND
+================================ */
+
+.navbar-context {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  min-width: 220px;
+}
+
+.context-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eaf5ff;
+  color: #2784c7;
+
+  border: 1px solid #d8ebfa;
+  border-radius: 9px;
+}
+
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navbar-brand-text span {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  color: #16324f;
+}
+
+.navbar-brand-text strong {
+  font-size: 11px;
+  font-weight: 500;
+  color: #7b91a6;
+}
+
+/* ================================
+   RIGHT ACTIONS
+================================ */
+
+.navbar-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* ================================
+   THEME BUTTON
+================================ */
+
+.notification-button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e1ebf4;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #567089;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.notification-button:hover {
+  background: #f1f8ff;
+  border-color: #cfe5f7;
+  color: #247dbb;
+}
+
+/* ================================
+   NOTIFICATION
+================================ */
+
+.notification-button {
+  position: relative;
+}
+
+.notification-dot {
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  top: 7px;
+  right: 7px;
+
+  border-radius: 50%;
+
+  background: #4b9bd1;
+  border: 2px solid #ffffff;
+}
+
+/* ================================
+   DIVIDER
+================================ */
+
+.navbar-divider {
+  width: 1px;
+  height: 28px;
+
+  background: #e5edf5;
+
+  margin: 0 7px;
+}
+
+/* ================================
+   PROFILE
+================================ */
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 5px 7px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  color: #557087;
+
+  transition: background 0.2s ease;
+}
+
+.navbar-profile:hover {
+  background: #f4f9fd;
+}
+
+.navbar-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e7f3fc;
+  border: 1px solid #cfe5f6;
+
+  color: #277eb9;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.navbar-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 2px;
+}
+
+.navbar-user strong {
+  font-size: 12px;
+  font-weight: 700;
+  color: #29445b;
+}
+
+.navbar-user span {
+  font-size: 10px;
+  color: #8ba0b2;
+}
+
+/* ================================
+   DARK MODE
+   Kept soft, not black/neon
+================================ */
+
+[data-theme="dark"] .navbar {
+  background: #111521;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .navbar-brand-text span {
+  color: #f4f4f8;
+}
+
+[data-theme="dark"] .navbar-brand-text strong {
+  color: #a9adbd;
+}
+
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .notification-button {
+  background: #1b2130;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #a9adbd;
+}
+
+[data-theme="dark"] .notification-button:hover {
+  background: #252d40;
+  border-color: rgba(139, 92, 246, 0.45);
+  color: #c4b5fd;
+}
+
+[data-theme="dark"] .notification-dot {
+  border-color: #111521;
+}
+
+.notification-panel {
+  position: absolute;
+  top: 47px;
+  right: 54px;
+  width: 290px;
+  padding: 14px;
+  color: var(--text-primary, #171923);
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, rgba(15, 23, 42, 0.12));
+  border-radius: 10px;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16);
+  z-index: 1100;
+}
+
+.notification-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border, rgba(15, 23, 42, 0.12));
+  font-size: 13px;
+}
+
+.notification-panel-header span {
+  color: var(--accent, #7c3aed);
+  font-size: 11px;
+}
+
+.notification-item {
+  display: flex;
+  gap: 9px;
+  padding: 12px 0 2px;
+  font-size: 11px;
+}
+
+.notification-item-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  margin-top: 5px;
+  background: var(--accent, #7c3aed);
+  border-radius: 50%;
+}
+
+.notification-item strong,
+.notification-item span {
+  display: block;
+}
+
+.notification-item div span {
+  margin-top: 3px;
+  color: var(--text-secondary, #667085);
+  line-height: 1.4;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 700px) {
+  .navbar {
+    height: 62px;
+    padding: 0 16px;
+  }
+
+  .navbar-user {
+    display: none;
+  }
+
+  .navbar-context {
+    min-width: auto;
+  }
+
+  .navbar-brand-text strong {
+    display: none;
+  }
+
+  .navbar-divider {
+    margin: 0 2px;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar-brand-text span {
+    font-size: 11px;
+  }
+
+  .navbar-actions {
+    gap: 5px;
+  }
+
+  .theme-toggle,
+  .notification-button {
+    width: 33px;
+    height: 33px;
+  }
+
+  .navbar-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Logout Button */
+.navbar-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.6);
+  color: #ffffff;
+  transform: translateY(-1px);
+}

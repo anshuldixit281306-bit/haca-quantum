@@ -1,0 +1,13 @@
+import { Bot, Send, Sparkles, User } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+const conversation = [{ role: "user", text: "Explain superposition in simple words." }, { role: "ai", text: "Think of a qubit as a quantum version of a bit that can exist in a combination of states until measured." }, { role: "user", text: "How does entanglement work?" }, { role: "ai", text: "Entanglement links two qubits so that measuring one tells you about the other." }];
+
+export default function AITutor() {
+  const [visible, setVisible] = useState(0);
+  const [active, setActive] = useState(false);
+  const sectionRef = useRef(null);
+  useEffect(() => { const observer = new IntersectionObserver(([entry]) => { if (entry?.isIntersecting) { setActive(true); observer.disconnect(); } }, { threshold: 0.3 }); if (sectionRef.current) observer.observe(sectionRef.current); return () => observer.disconnect(); }, []);
+  useEffect(() => { if (!active) return undefined; const timers = conversation.map((_, index) => window.setTimeout(() => setVisible((count) => Math.max(count, index + 1)), 700 + index * 900)); return () => timers.forEach(clearTimeout); }, [active]);
+  return <section ref={sectionRef} className="ql-new-section ql-new-ai"><div className="ql-new-section-inner ql-new-two-column"><div><div className="ql-new-eyebrow ql-new-reveal"><Bot size={14} /> AI TUTOR</div><h2 className="ql-new-reveal">Your Personal <span>Quantum AI Tutor</span></h2><p className="ql-new-lead ql-new-reveal">Confused by qubits, superposition or quantum algorithms? Learn step-by-step with an AI tutor designed to make quantum concepts easier to understand.</p><div className="ql-new-bullets ql-new-reveal"><p><Sparkles size={16} /> Personalized explanations tailored to your level</p><p><Sparkles size={16} /> Ask questions anytime, in natural language</p><p><Sparkles size={16} /> Step-by-step breakdowns of complex topics</p></div></div><div className="ql-new-chat ql-new-reveal"><header><Bot /><div><strong>QuantumLearn AI</strong><small>Online · Ready to help</small></div><i>●●●</i></header><div className="ql-new-messages">{conversation.slice(0, visible).map((message, index) => <div className={`ql-new-message ${message.role}`} key={index}>{message.role === "user" ? <User /> : <Bot />}<span>{message.text}</span></div>)}</div><footer><span>Ask about quantum computing...</span><button type="button" aria-label="Send question"><Send size={15} /></button></footer></div></div></section>;
+}

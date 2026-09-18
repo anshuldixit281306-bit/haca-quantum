@@ -1,0 +1,6 @@
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const links = [["Home", "#home"], ["Features", "#features"], ["Algorithms", "#algorithms"], ["How It Works", "#how-it-works"], ["About", "#about"]];
+
+export default function Footer() { const scrollTo = (href) => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" }); return <footer className="ql-new-footer"><div className="ql-new-footer-grid"><div><div className="ql-new-footer-brand">⚛ <strong>QuantumLearn</strong></div><p>Making Quantum Computing Easier to Learn.</p></div><div><h4>Navigation</h4>{links.map(([label, href]) => <button type="button" key={label} onClick={() => scrollTo(href)}>{label}</button>)}</div><div><h4>Get Started</h4><p>Join thousands learning quantum computing the interactive way.</p><Link className="ql-new-ghost" to="/signup">Get Started <ArrowRight size={15} /></Link></div></div><div className="ql-new-footer-bottom"><span>© 2026 QuantumLearn. All rights reserved.</span><span>Privacy Policy · Terms of Service · Contact</span></div></footer>; }

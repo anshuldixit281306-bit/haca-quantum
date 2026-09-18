@@ -1,0 +1,4 @@
+import { ArrowRight, Atom } from "lucide-react";
+import { Link } from "react-router-dom";
+
+export default function FinalCTA() { return <section id="cta" className="ql-new-section ql-new-final-cta"><div className="ql-new-cta-card"><Atom className="ql-new-cta-atom atom-one" /><Atom className="ql-new-cta-atom atom-two" /><div className="ql-new-eyebrow ql-new-reveal"><Atom size={14} /> START YOUR JOURNEY</div><h2 className="ql-new-reveal">Ready to Enter the <span>Quantum World?</span></h2><p className="ql-new-reveal">Start your journey into Quantum Computing and learn the future of technology, one concept at a time.</p><Link className="ql-new-button ql-new-reveal" to="/signup">Get Started <ArrowRight size={17} /></Link></div></section>; }
