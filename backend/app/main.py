@@ -1,13 +1,16 @@
 import sys
 from pathlib import Path
 
-# Add QuantumLearn project root to Python path.
-# This allows the external ai_assisstance package
-# to be imported correctly.
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+# Add backend directory and project root to Python path.
+# This ensures app and external modules (quantum_engine, ai_assisstance)
+# are importable whether running from root, backend, or Docker.
+APP_DIR = Path(__file__).resolve().parent
+BACKEND_DIR = APP_DIR.parent
+PROJECT_ROOT = BACKEND_DIR.parent
 
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+for dir_path in [str(BACKEND_DIR), str(PROJECT_ROOT)]:
+    if dir_path not in sys.path:
+        sys.path.insert(0, dir_path)
 
 
 """

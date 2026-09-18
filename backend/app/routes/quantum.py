@@ -1,10 +1,13 @@
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
+APP_DIR = Path(__file__).resolve().parents[1]
+BACKEND_DIR = APP_DIR.parent
+PROJECT_ROOT = BACKEND_DIR.parent
 
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+for dir_path in [str(BACKEND_DIR), str(PROJECT_ROOT)]:
+    if dir_path not in sys.path:
+        sys.path.insert(0, dir_path)
 """
 Quantum circuit and algorithm API routes.
 

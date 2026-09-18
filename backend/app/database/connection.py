@@ -8,10 +8,22 @@ from sqlalchemy.orm import sessionmaker
 from app.core.config import settings
 
 
-# PostgreSQL database engine
+# Database connection string normalization (Render provides postgres:// which SQLAlchemy 2.0 rejects)
+raw_db_url = settings.DATABASE_URL
+if raw_db_url.startswith("postgres://"):
+    database_url = raw_db_url.replace("postgres://", "postgresql://", 1)
+else:
+    database_url = raw_db_url
+
+connect_args = {}
+if database_url.startswith("sqlite"):
+    connect_args["check_same_thread"] = False
+
+# Database engine
 engine = create_engine(
-    settings.DATABASE_URL,
+    database_url,
     pool_pre_ping=True,
+    connect_args=connect_args,
 )
 
 

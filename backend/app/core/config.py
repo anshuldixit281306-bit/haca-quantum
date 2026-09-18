@@ -15,12 +15,17 @@ class Settings(BaseSettings):
     # ==========================================
     # Database
     # ==========================================
-    DATABASE_URL: str
+    DATABASE_URL: str = "sqlite:///./quantumlearn.db"
+
+    # ==========================================
+    # Port (Render dynamically assigns PORT)
+    # ==========================================
+    PORT: int = 8000
 
     # ==========================================
     # JWT
     # ==========================================
-    SECRET_KEY: str
+    SECRET_KEY: str = "quantumlearn-secret-key-change-in-production-min32chars"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
 
@@ -56,7 +61,9 @@ class Settings(BaseSettings):
         "http://localhost:5173,"
         "http://127.0.0.1:5173,"
         "http://localhost:5174,"
-        "http://127.0.0.1:5174"
+        "http://127.0.0.1:5174,"
+        "https://macnquant.web.app,"
+        "https://macnquant.firebaseapp.com"
     )
 
     # ==========================================
