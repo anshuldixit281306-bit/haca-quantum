@@ -55,7 +55,7 @@
 }
 
 .login-logo:hover {
-  color: #356ae6;
+  color: #5eead4;
 }
 
 .login-nav {
@@ -72,7 +72,7 @@
 }
 
 .login-nav a:hover {
-  color: #356ae6;
+  color: #5eead4;
 }
 
 /* =========================================
@@ -118,7 +118,7 @@
 
   background: #f2f6ff;
 
-  color: #356ae6;
+  color: #5eead4;
   font-size: 11px;
   font-weight: 600;
 
@@ -137,7 +137,7 @@
 }
 
 .login-intro h1 span {
-  color: #356ae6;
+  color: #5eead4;
 }
 
 .login-intro > p {
@@ -182,7 +182,7 @@
 
   background: #ffffff;
 
-  color: #356ae6;
+  color: #5eead4;
 
   font-size: 11px;
   font-weight: 600;
@@ -292,7 +292,7 @@
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #356ae6;
+  border-color: #5eead4;
   box-shadow: 0 0 0 3px rgba(53, 106, 230, 0.09);
 }
 
@@ -307,7 +307,7 @@
 }
 
 .forgot-button {
-  color: #356ae6;
+  color: #5eead4;
 
   font-size: 12px;
   font-weight: 500;
@@ -340,7 +340,7 @@
 }
 
 .show-password:hover {
-  color: #356ae6;
+  color: #5eead4;
 }
 
 /* =========================================
@@ -367,7 +367,7 @@
   width: 14px;
   height: 14px;
 
-  accent-color: #356ae6;
+  accent-color: #5eead4;
 
   cursor: pointer;
 }
@@ -382,7 +382,7 @@
 
   border-radius: 7px;
 
-  background: #356ae6;
+  background: #5eead4;
   color: #ffffff;
 
   font-size: 14px;
@@ -394,7 +394,7 @@
 }
 
 .login-button:hover {
-  background: #2857c7;
+  background: #0f766e;
 }
 
 .login-button:active {
@@ -481,7 +481,7 @@
 }
 
 .register-text a {
-  color: #356ae6;
+  color: #5eead4;
   font-weight: 600;
 }
 
@@ -517,7 +517,7 @@
 }
 
 .login-footer a:hover {
-  color: #356ae6;
+  color: #5eead4;
 }
 
 /* =========================================

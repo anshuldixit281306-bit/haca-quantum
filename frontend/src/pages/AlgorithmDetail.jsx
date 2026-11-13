@@ -261,13 +261,6 @@ function AlgorithmDetail() {
         </section>
       </div>
 
-      <nav className="algorithm-detail-navigation">
-        <Link to="/dashboard">Home</Link>
-        <Link to="/learn">Learn</Link>
-        <Link to="/ai-tutor">AI Tutor</Link>
-        <Link to="/simulator">Simulator</Link>
-        <Link to="/progress">Progress</Link>
-      </nav>
     </main>
   );
 }

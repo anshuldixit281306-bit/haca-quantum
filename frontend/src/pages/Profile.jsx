@@ -19,8 +19,6 @@ import {
 
 import "./Profile.css";
 import { API_BASE_URL } from "../services/api";
-import BottomNavigation from "../components/BottomNavigation";
-
 const API_URL = API_BASE_URL;
 
 function Profile() {
@@ -463,8 +461,6 @@ function Profile() {
         </section>
 
       </main>
-
-      <BottomNavigation />
 
     </div>
   );

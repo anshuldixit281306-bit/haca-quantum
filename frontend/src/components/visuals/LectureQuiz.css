@@ -244,11 +244,11 @@
   gap: 8px;
   margin-top: 14px;
   padding: 10px 14px;
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(94, 234, 212, 0.08);
+  border: 1px solid rgba(94, 234, 212, 0.2);
   border-radius: 8px;
   font-size: 12.5px;
-  color: #93c5fd;
+  color: #a7f3d0;
   line-height: 1.5;
 }
 
@@ -262,7 +262,7 @@
 .lq-submit-btn {
   padding: 14px 32px;
   border-radius: 10px;
-  background: linear-gradient(120deg, #3b82f6, #5eead4);
+  background: linear-gradient(120deg, #5eead4, #5eead4);
   color: #061312;
   font-size: 15px;
   font-weight: 700;

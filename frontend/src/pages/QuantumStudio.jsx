@@ -12,7 +12,6 @@ import {
   Info,
   Trash2,
 } from "lucide-react";
-import BottomNavigation from "../components/BottomNavigation";
 import "./QuantumStudio.css";
 
 /* ================================================================== */
@@ -848,8 +847,6 @@ export default function QuantumStudio() {
           </div>
         </div>
       </section>
-
-      <BottomNavigation />
     </div>
   );
 }

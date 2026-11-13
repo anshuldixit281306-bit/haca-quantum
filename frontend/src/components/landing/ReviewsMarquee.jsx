@@ -3,9 +3,9 @@ import { API_BASE_URL } from "../../services/api";
 import "./ReviewsMarquee.css";
 
 const AVATAR_COLORS = [
-  ["#3b82f6", "#1d3d87"],
+  ["#5eead4", "#0f766e"],
   ["#5eead4", "#0a4a45"],
-  ["#a855f7", "#4a1575"],
+  ["#34d399", "#4a1575"],
   ["#f59e0b", "#7a4f00"],
   ["#34d399", "#0f5a3a"],
   ["#f87171", "#6b1d1d"],

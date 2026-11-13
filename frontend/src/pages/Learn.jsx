@@ -14,8 +14,6 @@ import {
 
 import "./Learn.css";
 import { API_BASE_URL } from "../services/api";
-import BottomNavigation from "../components/BottomNavigation";
-
 const API_URL = API_BASE_URL;
 
 // Offline-safe thumbnail fallback (inline SVG, no network needed).
@@ -376,8 +374,6 @@ const FALLBACK_LECTURES = [
           </div>
         </div>
       )}
-
-      <BottomNavigation />
     </div>
   );
 }

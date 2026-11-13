@@ -46,21 +46,21 @@ export default function BlochSphere({ coords, label = "q0" }) {
         <svg viewBox="0 0 220 240" width="100%" role="img" aria-label={`Bloch sphere for ${label}`}>
           <defs>
             <radialGradient id="ql-bloch-shade" cx="35%" cy="30%" r="75%">
-              <stop offset="0%" stopColor="rgba(124,108,255,0.28)" />
+              <stop offset="0%" stopColor="rgba(94,234,212,0.28)" />
               <stop offset="70%" stopColor="rgba(11,16,36,0.55)" />
               <stop offset="100%" stopColor="rgba(11,16,36,0.85)" />
             </radialGradient>
           </defs>
 
           {/* Sphere body */}
-          <circle cx={CX} cy={CY} r={R} fill="url(#ql-bloch-shade)" stroke="rgba(141,130,255,0.45)" strokeWidth="1.4" />
+          <circle cx={CX} cy={CY} r={R} fill="url(#ql-bloch-shade)" stroke="rgba(94,234,212,0.45)" strokeWidth="1.4" />
 
           {/* Equator */}
-          <ellipse cx={CX} cy={CY} rx={R} ry={R * 0.3} fill="none" stroke="rgba(141,130,255,0.35)" strokeDasharray="4 5" />
+          <ellipse cx={CX} cy={CY} rx={R} ry={R * 0.3} fill="none" stroke="rgba(94,234,212,0.35)" strokeDasharray="4 5" />
 
           {/* Axes */}
-          <line x1={CX} y1={CY - R - 14} x2={CX} y2={CY + R + 14} stroke="rgba(141,130,255,0.35)" />
-          <line x1={CX - R - 12} y1={CY} x2={CX + R + 12} y2={CY} stroke="rgba(141,130,255,0.35)" />
+          <line x1={CX} y1={CY - R - 14} x2={CX} y2={CY + R + 14} stroke="rgba(94,234,212,0.35)" />
+          <line x1={CX - R - 12} y1={CY} x2={CX + R + 12} y2={CY} stroke="rgba(94,234,212,0.35)" />
 
           {/* Axis labels */}
           <text x={CX} y={CY - R - 18} textAnchor="middle">|0⟩</text>
@@ -74,20 +74,20 @@ export default function BlochSphere({ coords, label = "q0" }) {
             y1={CY}
             x2={tipX}
             y2={tipY}
-            stroke="#22d3ee"
+            stroke="#5eead4"
             strokeWidth={1.6 + depth * 1.6}
             strokeLinecap="round"
             opacity={0.35 + depth * 0.65}
-            style={{ filter: "drop-shadow(0 0 6px rgba(34,211,238,0.8))" }}
+            style={{ filter: "drop-shadow(0 0 6px rgba(94,234,212,0.8))" }}
           />
           <circle
             className="ql-bloch-vector"
             cx={tipX}
             cy={tipY}
             r="6"
-            fill="#22d3ee"
+            fill="#5eead4"
             opacity={0.45 + depth * 0.55}
-            style={{ filter: "drop-shadow(0 0 8px rgba(34,211,238,0.9))" }}
+            style={{ filter: "drop-shadow(0 0 8px rgba(94,234,212,0.9))" }}
           />
 
           <text x={CX} y={228} textAnchor="middle" fill="#a3adcf" fontSize="11">

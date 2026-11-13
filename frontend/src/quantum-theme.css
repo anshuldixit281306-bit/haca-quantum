@@ -21,8 +21,8 @@
   --q-muted: #9abbb3;
   --q-faint: #70918a;
 
-  --q-indigo: #3b82f6;
-  --q-violet: #a855f7;
+  --q-indigo: #5eead4;
+  --q-violet: #34d399;
   --q-cyan: #5eead4;
   --q-teal: #a7f3d0;
   --q-magenta: #34d399;
@@ -30,8 +30,8 @@
   --q-border: rgba(94, 234, 212, 0.18);
   --q-border-hot: rgba(94, 234, 212, 0.42);
 
-  --q-grad-primary: linear-gradient(120deg, #3b82f6 0%, #5eead4 52%, #34d399 100%);
-  --q-grad-accent: linear-gradient(120deg, #5eead4 0%, #3b82f6 55%, #34d399 100%);
+  --q-grad-primary: linear-gradient(120deg, #a7f3d0 0%, #5eead4 52%, #34d399 100%);
+  --q-grad-accent: linear-gradient(120deg, #5eead4 0%, #34d399 55%, #a7f3d0 100%);
   --q-grad-text: linear-gradient(100deg, #f0fffb 0%, #a7f3d0 42%, #5eead4 100%);
 
   --q-font-display: "Space Grotesk", "IBM Plex Sans", "Segoe UI", Arial, system-ui, sans-serif;
@@ -67,7 +67,7 @@ body {
   pointer-events: none;
   background:
     radial-gradient(circle at 18% 12%, rgba(20, 184, 166, 0.18), transparent 30%),
-    radial-gradient(circle at 84% 20%, rgba(59, 130, 246, 0.11), transparent 26%),
+    radial-gradient(circle at 84% 20%, rgba(94, 234, 212, 0.11), transparent 26%),
     radial-gradient(circle at 64% 86%, rgba(52, 211, 153, 0.12), transparent 28%),
     radial-gradient(circle at 12% 78%, rgba(94, 234, 212, 0.10), transparent 24%),
     linear-gradient(180deg, #061312 0%, #071b20 55%, #061312 100%);
@@ -83,8 +83,8 @@ body {
   pointer-events: none;
   opacity: 0.16;
   background-image:
-    linear-gradient(rgba(152, 166, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(152, 166, 255, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.12) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: linear-gradient(to bottom, black, transparent 82%);
   animation: q-grid-pan 36s linear infinite;
@@ -100,7 +100,7 @@ body::after {
   height: 34%;
   z-index: 9998;
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent, rgba(124, 108, 255, 0.05), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(94, 234, 212, 0.05), transparent);
   animation: q-scan-sweep 9s linear infinite;
 }
 
@@ -117,7 +117,7 @@ body::after {
    3. SELECTION & SCROLLBAR — neon
    ============================================================ */
 ::selection {
-  background: rgba(124, 108, 255, 0.5);
+  background: rgba(94, 234, 212, 0.5);
   color: #ffffff;
 }
 
@@ -131,13 +131,13 @@ body::after {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #4b3fd9, #1f2a6b);
+  background: linear-gradient(180deg, #0f766e, #0a3b36);
   border-radius: 20px;
   border: 2px solid #070a18;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #6b5df5, #2b3ba3);
+  background: linear-gradient(180deg, #34d399, #0f766e);
 }
 
 /* ============================================================
@@ -201,25 +201,25 @@ h5 {
   color: var(--q-ink);
 }
 /* ============================================================
-   5. APP SHELL — SIDEBAR, NAVBAR, BOTTOM NAV
+   5. APP SHELL — SIDEBAR & NAVBAR
    ============================================================ */
 .app {
   background:
-    radial-gradient(circle at 76% 6%, rgba(124, 108, 255, 0.2), transparent 30%),
+    radial-gradient(circle at 76% 6%, rgba(94, 234, 212, 0.2), transparent 30%),
     var(--q-bg) !important;
 }
 
 .app::before {
   opacity: 0.9;
   background:
-    radial-gradient(circle at 74% 12%, rgba(124, 108, 255, 0.3), transparent 26%),
-    radial-gradient(circle at 16% 80%, rgba(34, 211, 238, 0.16), transparent 24%),
-    radial-gradient(circle at 90% 88%, rgba(232, 121, 249, 0.14), transparent 22%);
+    radial-gradient(circle at 74% 12%, rgba(94, 234, 212, 0.3), transparent 26%),
+    radial-gradient(circle at 16% 80%, rgba(94, 234, 212, 0.16), transparent 24%),
+    radial-gradient(circle at 90% 88%, rgba(52, 211, 153, 0.14), transparent 22%);
 }
 
 .page-content {
   background:
-    radial-gradient(circle at 70% 0%, rgba(124, 108, 255, 0.14), transparent 32%),
+    radial-gradient(circle at 70% 0%, rgba(94, 234, 212, 0.14), transparent 32%),
     transparent !important;
 }
 
@@ -237,7 +237,7 @@ h5 {
   background: linear-gradient(#0a0d1f, #0a0d1f) padding-box,
     var(--q-grad-accent) border-box;
   color: var(--q-ink-strong) !important;
-  box-shadow: 0 0 18px rgba(124, 108, 255, 0.55) !important;
+  box-shadow: 0 0 18px rgba(94, 234, 212, 0.55) !important;
   animation: q-logo-pulse 3.2s ease-in-out infinite;
 }
 
@@ -257,13 +257,13 @@ h5 {
 }
 
 .sidebar-item.selected {
-  background: linear-gradient(90deg, rgba(124, 108, 255, 0.22), rgba(34, 211, 238, 0.08)) !important;
-  box-shadow: inset 3px 0 0 var(--q-indigo), 0 0 22px rgba(124, 108, 255, 0.25);
+  background: linear-gradient(90deg, rgba(94, 234, 212, 0.22), rgba(94, 234, 212, 0.08)) !important;
+  box-shadow: inset 3px 0 0 var(--q-indigo), 0 0 22px rgba(94, 234, 212, 0.25);
   color: var(--q-ink-strong) !important;
 }
 
 .sidebar-item:not(.selected):hover {
-  background: rgba(124, 108, 255, 0.12) !important;
+  background: rgba(94, 234, 212, 0.12) !important;
   color: var(--q-ink) !important;
 }
 
@@ -276,7 +276,7 @@ h5 {
 .profile-avatar,
 .profile-avatar::after {
   background: var(--q-grad-accent);
-  box-shadow: 0 0 14px rgba(124, 108, 255, 0.5);
+  box-shadow: 0 0 14px rgba(94, 234, 212, 0.5);
   color: #fff;
 }
 
@@ -302,7 +302,7 @@ h5 {
   right: 12%;
   bottom: -1px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(124, 108, 255, 0.75), rgba(34, 211, 238, 0.75), transparent);
+  background: linear-gradient(90deg, transparent, rgba(94, 234, 212, 0.75), rgba(94, 234, 212, 0.75), transparent);
   animation: q-hairline-flow 5s linear infinite;
 }
 
@@ -318,15 +318,15 @@ h5 {
 
 .context-icon {
   border: 1px solid var(--q-border);
-  background: rgba(124, 108, 255, 0.14);
+  background: rgba(94, 234, 212, 0.14);
   color: var(--q-teal) !important;
-  box-shadow: 0 0 16px rgba(34, 211, 238, 0.25);
+  box-shadow: 0 0 16px rgba(94, 234, 212, 0.25);
   animation: q-float 5s ease-in-out infinite;
 }
 
 .notification-button,
 .navbar-profile {
-  background: rgba(124, 108, 255, 0.07) !important;
+  background: rgba(94, 234, 212, 0.07) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-muted) !important;
 }
@@ -335,8 +335,8 @@ h5 {
 .navbar-profile:hover {
   color: var(--q-ink-strong) !important;
   border-color: var(--q-indigo) !important;
-  background: rgba(124, 108, 255, 0.16) !important;
-  box-shadow: 0 0 16px rgba(124, 108, 255, 0.3);
+  background: rgba(94, 234, 212, 0.16) !important;
+  box-shadow: 0 0 16px rgba(94, 234, 212, 0.3);
 }
 
 .notification-dot {
@@ -349,14 +349,14 @@ h5 {
 .navbar-avatar {
   background: var(--q-grad-accent);
   color: #fff;
-  box-shadow: 0 0 12px rgba(124, 108, 255, 0.45);
+  box-shadow: 0 0 12px rgba(94, 234, 212, 0.45);
 }
 
 .notification-panel {
   background: rgba(10, 13, 31, 0.95) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-ink);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 30px rgba(124, 108, 255, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 30px rgba(94, 234, 212, 0.12);
   backdrop-filter: blur(18px);
   border-radius: 14px;
 }
@@ -369,38 +369,6 @@ h5 {
   color: var(--q-teal) !important;
 }
 
-/* ---- BOTTOM NAV (mobile) ---- */
-.ql-dashboard-footer-nav {
-  background: rgba(10, 13, 31, 0.92) !important;
-  border: 1px solid var(--q-border) !important;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), 0 0 24px rgba(124, 108, 255, 0.15);
-  backdrop-filter: blur(18px);
-}
-
-.ql-navigation-menu-button {
-  color: var(--q-ink) !important;
-}
-
-.ql-footer-nav-button {
-  color: var(--q-muted) !important;
-}
-
-.ql-footer-nav-button:hover,
-.ql-footer-nav-button.active {
-  background: rgba(124, 108, 255, 0.16) !important;
-  color: var(--q-ink-strong) !important;
-}
-
-.ql-footer-nav-button.active .ql-footer-nav-icon {
-  background: var(--q-grad-primary) !important;
-  color: #fff !important;
-  box-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
-}
-
-.ql-footer-nav-button.active::after {
-  background: var(--q-cyan) !important;
-  box-shadow: 0 0 8px var(--q-cyan);
-}
 /* ============================================================
    6. GLASS CARDS — unified quantum surface for all pages
    ============================================================ */
@@ -454,8 +422,8 @@ h5 {
 .challenge-card:hover,
 .admin-card:hover {
   transform: translateY(-4px) !important;
-  border-color: rgba(125, 211, 252, 0.5) !important;
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45), 0 0 30px rgba(124, 108, 255, 0.18) !important;
+  border-color: rgba(94, 234, 212, 0.5) !important;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45), 0 0 30px rgba(94, 234, 212, 0.18) !important;
 }
 /* ============================================================
    7. BUTTONS — gradient + glow
@@ -512,7 +480,7 @@ h5 {
 .run-button:hover,
 .studio-action:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 16px 42px rgba(109, 92, 252, 0.5), 0 0 26px rgba(34, 211, 238, 0.35) !important;
+  box-shadow: 0 16px 42px rgba(109, 92, 252, 0.5), 0 0 26px rgba(94, 234, 212, 0.35) !important;
   filter: brightness(1.08);
 }
 
@@ -526,7 +494,7 @@ h5 {
 .tool-actions button,
 .studio-tabs button {
   color: var(--q-cyan) !important;
-  border-color: rgba(34, 211, 238, 0.35) !important;
+  border-color: rgba(94, 234, 212, 0.35) !important;
   transition: all 0.2s ease;
 }
 
@@ -536,9 +504,9 @@ h5 {
 .btn:hover,
 .example-list button:hover,
 .tool-actions button:hover {
-  background: rgba(34, 211, 238, 0.12) !important;
+  background: rgba(94, 234, 212, 0.12) !important;
   border-color: var(--q-cyan) !important;
-  box-shadow: 0 0 18px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 18px rgba(94, 234, 212, 0.2);
 }
 
 .google-icon {
@@ -557,7 +525,7 @@ h5 {
   background: var(--q-grad-accent) !important;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 14px rgba(34, 211, 238, 0.55);
+  box-shadow: 0 0 14px rgba(94, 234, 212, 0.55);
 }
 
 .large-progress-fill::after,
@@ -577,7 +545,7 @@ h5 {
 .overall-progress-bar,
 .profile-progress-track,
 .lecture-progress {
-  background: rgba(141, 130, 255, 0.14) !important;
+  background: rgba(94, 234, 212, 0.14) !important;
   height: 8px;
   border-radius: 999px;
 }
@@ -645,17 +613,17 @@ h5 {
 
 .lecture-number {
   color: var(--q-cyan);
-  text-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+  text-shadow: 0 0 14px rgba(94, 234, 212, 0.5);
 }
 
 .learn-intro-icon,
 .stat-icon,
 .tool-icon,
 .algorithm-icon {
-  background: linear-gradient(135deg, rgba(124, 108, 255, 0.25), rgba(34, 211, 238, 0.12)) !important;
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.25), rgba(94, 234, 212, 0.12)) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-cyan) !important;
-  box-shadow: 0 0 16px rgba(34, 211, 238, 0.15);
+  box-shadow: 0 0 16px rgba(94, 234, 212, 0.15);
 }
 /* ============================================================
    11. AUTH PAGES — LOGIN / REGISTRATION (full quantum dark)
@@ -663,9 +631,9 @@ h5 {
 .login-page,
 .registration-page {
   background:
-    radial-gradient(circle at 15% 25%, rgba(124, 108, 255, 0.22), transparent 32%),
-    radial-gradient(circle at 85% 75%, rgba(34, 211, 238, 0.14), transparent 30%),
-    radial-gradient(circle at 72% 12%, rgba(232, 121, 249, 0.1), transparent 26%),
+    radial-gradient(circle at 15% 25%, rgba(94, 234, 212, 0.22), transparent 32%),
+    radial-gradient(circle at 85% 75%, rgba(94, 234, 212, 0.14), transparent 30%),
+    radial-gradient(circle at 72% 12%, rgba(52, 211, 153, 0.1), transparent 26%),
     var(--q-bg) !important;
   color: var(--q-ink) !important;
 }
@@ -673,10 +641,10 @@ h5 {
 .login-page::before,
 .registration-page::before {
   background:
-    radial-gradient(circle at 14% 20%, rgba(124, 108, 255, 0.3), transparent 30%),
-    radial-gradient(circle at 86% 70%, rgba(34, 211, 238, 0.16), transparent 28%),
-    linear-gradient(rgba(152, 166, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(152, 166, 255, 0.06) 1px, transparent 1px);
+    radial-gradient(circle at 14% 20%, rgba(94, 234, 212, 0.3), transparent 30%),
+    radial-gradient(circle at 86% 70%, rgba(94, 234, 212, 0.16), transparent 28%),
+    linear-gradient(rgba(94, 234, 212, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.06) 1px, transparent 1px);
   background-size: auto, auto, 54px 54px, 54px 54px;
   animation: q-aurora-drift 18s ease-in-out infinite alternate;
 }
@@ -692,7 +660,7 @@ h5 {
   font-family: var(--q-font-orbital);
   letter-spacing: 0.12em;
   color: var(--q-ink) !important;
-  text-shadow: 0 0 18px rgba(124, 108, 255, 0.4);
+  text-shadow: 0 0 18px rgba(94, 234, 212, 0.4);
 }
 
 .login-nav a,
@@ -707,11 +675,11 @@ h5 {
 
 /* Left intro */
 .intro-label {
-  background: rgba(124, 108, 255, 0.14);
-  border: 1px solid rgba(124, 108, 255, 0.4);
+  background: rgba(94, 234, 212, 0.14);
+  border: 1px solid rgba(94, 234, 212, 0.4);
   color: var(--q-teal);
   font-family: var(--q-font-mono);
-  box-shadow: 0 0 14px rgba(124, 108, 255, 0.25);
+  box-shadow: 0 0 14px rgba(94, 234, 212, 0.25);
 }
 
 .login-intro h1 {
@@ -738,10 +706,10 @@ h5 {
 }
 
 .feature-icon {
-  background: linear-gradient(135deg, rgba(124, 108, 255, 0.28), rgba(34, 211, 238, 0.1)) !important;
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.28), rgba(94, 234, 212, 0.1)) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-cyan) !important;
-  box-shadow: 0 0 14px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 14px rgba(94, 234, 212, 0.2);
 }
 
 /* Auth cards */
@@ -751,7 +719,7 @@ h5 {
   border: 1px solid var(--q-border) !important;
   border-radius: 18px;
   backdrop-filter: blur(16px);
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5), 0 0 40px rgba(124, 108, 255, 0.14), inset 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5), 0 0 40px rgba(94, 234, 212, 0.14), inset 0 1px rgba(255, 255, 255, 0.06);
   animation: q-reveal 0.7s ease both;
   position: relative;
   overflow: hidden;
@@ -766,7 +734,7 @@ h5 {
   right: 0;
   height: 2px;
   background: var(--q-grad-accent);
-  box-shadow: 0 0 18px rgba(124, 108, 255, 0.6);
+  box-shadow: 0 0 18px rgba(94, 234, 212, 0.6);
 }
 
 .login-card-header h2,
@@ -794,7 +762,7 @@ h5 {
 .registration-group input,
 .registration-group select {
   background: rgba(13, 17, 38, 0.8) !important;
-  border: 1px solid rgba(141, 130, 255, 0.25) !important;
+  border: 1px solid rgba(94, 234, 212, 0.25) !important;
   border-radius: 10px !important;
   color: var(--q-ink) !important;
   transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
@@ -810,7 +778,7 @@ h5 {
 .registration-group input:focus,
 .registration-group select:focus {
   border-color: var(--q-cyan) !important;
-  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.16), 0 0 20px rgba(34, 211, 238, 0.18) !important;
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.16), 0 0 20px rgba(94, 234, 212, 0.18) !important;
 }
 
 .show-password,
@@ -860,31 +828,31 @@ h5 {
    ============================================================ */
 .landing-page {
   background:
-    radial-gradient(circle at 8% 18%, rgba(124, 108, 255, 0.3), transparent 30%),
-    radial-gradient(circle at 90% 60%, rgba(34, 211, 238, 0.18), transparent 28%),
+    radial-gradient(circle at 8% 18%, rgba(94, 234, 212, 0.3), transparent 30%),
+    radial-gradient(circle at 90% 60%, rgba(94, 234, 212, 0.18), transparent 28%),
     linear-gradient(180deg, #05060f 0%, #070a1c 50%, #0b0e24 100%) !important;
   color: var(--q-ink) !important;
 }
 
 .landing-page::before {
   background:
-    radial-gradient(circle at 8% 22%, rgba(124, 108, 255, 0.4), transparent 28%),
-    radial-gradient(circle at 92% 62%, rgba(34, 211, 238, 0.22), transparent 26%),
+    radial-gradient(circle at 8% 22%, rgba(94, 234, 212, 0.4), transparent 28%),
+    radial-gradient(circle at 92% 62%, rgba(94, 234, 212, 0.22), transparent 26%),
     linear-gradient(180deg, #070a1c 0%, #05060f 45%, #0c1230 100%);
 }
 
 .landing-page::after {
   opacity: 0.2;
   background-image:
-    linear-gradient(rgba(152, 166, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(152, 166, 255, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.12) 1px, transparent 1px);
 }
 
 .landing-brand span {
   border-color: var(--q-cyan);
   color: var(--q-teal);
   font-family: var(--q-font-mono);
-  box-shadow: 0 0 22px rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 22px rgba(94, 234, 212, 0.5);
   animation: q-logo-pulse 3.4s ease-in-out infinite;
 }
 
@@ -916,7 +884,7 @@ h5 {
   font-family: var(--q-font-display);
   font-weight: 600;
   letter-spacing: 0.04em;
-  box-shadow: 0 12px 34px rgba(109, 92, 252, 0.45), 0 0 24px rgba(34, 211, 238, 0.2) !important;
+  box-shadow: 0 12px 34px rgba(109, 92, 252, 0.45), 0 0 24px rgba(94, 234, 212, 0.2) !important;
 }
 
 .landing-hero h1 {
@@ -924,7 +892,7 @@ h5 {
 }
 
 .landing-hero h1 em {
-  text-shadow: 0 0 32px rgba(124, 108, 255, 0.6);
+  text-shadow: 0 0 32px rgba(94, 234, 212, 0.6);
 }
 
 .proof-dot {
@@ -934,14 +902,14 @@ h5 {
 
 /* Orbit art glow */
 .landing-orbit-art .orbit {
-  border-color: rgba(124, 108, 255, 0.4);
-  box-shadow: 0 0 22px rgba(124, 108, 255, 0.18);
+  border-color: rgba(94, 234, 212, 0.4);
+  box-shadow: 0 0 22px rgba(94, 234, 212, 0.18);
   animation: q-orbit-breathe 6s ease-in-out infinite;
 }
 
 .landing-orbit-art .orbit-core {
   border: 1px solid var(--q-teal);
-  box-shadow: 0 0 40px rgba(34, 211, 238, 0.7);
+  box-shadow: 0 0 40px rgba(94, 234, 212, 0.7);
   color: var(--q-ink-strong);
   background: radial-gradient(circle, #3b4bd6, #151033);
   animation: q-core-pulse 3s ease-in-out infinite;
@@ -950,20 +918,20 @@ h5 {
 .orbit-label {
   color: var(--q-teal);
   font-family: var(--q-font-mono);
-  text-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+  text-shadow: 0 0 14px rgba(94, 234, 212, 0.5);
 }
 
 /* Stats band */
 .landing-stats {
   background: rgba(13, 17, 38, 0.8) !important;
   border-color: var(--q-border) !important;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4), 0 0 36px rgba(124, 108, 255, 0.15);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4), 0 0 36px rgba(94, 234, 212, 0.15);
   backdrop-filter: blur(12px);
 }
 
 .landing-stats strong {
   color: var(--q-indigo) !important;
-  text-shadow: 0 0 16px rgba(124, 108, 255, 0.5);
+  text-shadow: 0 0 16px rgba(94, 234, 212, 0.5);
 }
 
 .landing-stats span {
@@ -982,14 +950,14 @@ h5 {
 .concept-card:hover,
 .concept-card.is-active {
   transform: translateY(-6px);
-  border-color: rgba(125, 211, 252, 0.55) !important;
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5), 0 0 34px rgba(34, 211, 238, 0.2) !important;
+  border-color: rgba(94, 234, 212, 0.55) !important;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5), 0 0 34px rgba(94, 234, 212, 0.2) !important;
 }
 
 .concept-card span {
   color: var(--q-cyan);
   font-family: var(--q-font-mono);
-  text-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
+  text-shadow: 0 0 12px rgba(94, 234, 212, 0.5);
 }
 
 .concept-card p {
@@ -1009,7 +977,7 @@ h5 {
 .landing-experience {
   background: linear-gradient(135deg, rgba(16, 21, 48, 0.96), rgba(10, 30, 50, 0.9)) !important;
   border-top-color: rgba(77, 225, 208, 0.25) !important;
-  border-bottom-color: rgba(124, 108, 255, 0.25) !important;
+  border-bottom-color: rgba(94, 234, 212, 0.25) !important;
 }
 
 .experience-points {
@@ -1018,7 +986,7 @@ h5 {
 
 .experience-visual {
   background: rgba(8, 12, 30, 0.85) !important;
-  border-color: rgba(124, 108, 255, 0.4) !important;
+  border-color: rgba(94, 234, 212, 0.4) !important;
 }
 
 .mini-circuit {
@@ -1027,7 +995,7 @@ h5 {
 
 .probability-bars i {
   background: var(--q-grad-accent) !important;
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 10px rgba(94, 234, 212, 0.5);
 }
 
 /* Invite */
@@ -1038,7 +1006,7 @@ h5 {
 }
 
 .landing-invite h2 em {
-  text-shadow: 0 0 30px rgba(232, 121, 249, 0.5);
+  text-shadow: 0 0 30px rgba(52, 211, 153, 0.5);
 }
 
 .landing-footer {
@@ -1099,10 +1067,10 @@ h5 {
 /* Progress page */
 .progress-intro-icon,
 .ai-tutor-title-icon {
-  background: linear-gradient(135deg, rgba(124, 108, 255, 0.28), rgba(34, 211, 238, 0.1)) !important;
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.28), rgba(94, 234, 212, 0.1)) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-cyan) !important;
-  box-shadow: 0 0 18px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 18px rgba(94, 234, 212, 0.2);
   animation: q-float 5s ease-in-out infinite;
 }
 
@@ -1123,12 +1091,12 @@ h5 {
 
 .overall-percentage {
   color: var(--q-cyan) !important;
-  text-shadow: 0 0 16px rgba(34, 211, 238, 0.5);
+  text-shadow: 0 0 16px rgba(94, 234, 212, 0.5);
   font-family: var(--q-font-display);
 }
 
 .progress-lecture-number {
-  background: rgba(124, 108, 255, 0.12) !important;
+  background: rgba(94, 234, 212, 0.12) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-cyan) !important;
   font-family: var(--q-font-mono);
@@ -1153,7 +1121,7 @@ h5 {
 .profile-avatar {
   border: 1px solid var(--q-cyan);
   color: var(--q-teal) !important;
-  box-shadow: 0 0 24px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 24px rgba(94, 234, 212, 0.4);
 }
 
 .profile-status {
@@ -1161,7 +1129,7 @@ h5 {
 }
 
 .profile-stat-icon {
-  background: linear-gradient(135deg, rgba(124, 108, 255, 0.25), rgba(34, 211, 238, 0.1)) !important;
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.25), rgba(94, 234, 212, 0.1)) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-cyan) !important;
 }
@@ -1191,7 +1159,7 @@ h5 {
 .app::before {
   background:
     radial-gradient(circle at 74% 12%, rgba(20, 184, 166, 0.22), transparent 26%),
-    radial-gradient(circle at 16% 80%, rgba(59, 130, 246, 0.11), transparent 24%),
+    radial-gradient(circle at 16% 80%, rgba(94, 234, 212, 0.11), transparent 24%),
     radial-gradient(circle at 90% 88%, rgba(52, 211, 153, 0.1), transparent 22%);
 }
 
@@ -1210,7 +1178,7 @@ h5 {
 }
 
 .sidebar-item.selected {
-  background: linear-gradient(90deg, rgba(20, 184, 166, 0.2), rgba(59, 130, 246, 0.1)) !important;
+  background: linear-gradient(90deg, rgba(20, 184, 166, 0.2), rgba(94, 234, 212, 0.1)) !important;
   box-shadow: inset 3px 0 0 var(--q-cyan), 0 0 22px rgba(94, 234, 212, 0.14);
 }
 
@@ -1224,7 +1192,7 @@ h5 {
 }
 
 .navbar::after {
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.7), rgba(94, 234, 212, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(94, 234, 212, 0.7), rgba(94, 234, 212, 0.8), transparent);
 }
 
 .context-icon,
@@ -1380,27 +1348,6 @@ h5 {
 .large-progress-bar,
 .lecture-progress {
   background: rgba(94, 234, 212, 0.1) !important;
-}
-
-.ql-dashboard-footer-nav {
-  background: rgba(7, 25, 24, 0.94) !important;
-  border-color: rgba(94, 234, 212, 0.18) !important;
-}
-
-.ql-navigation-menu-button,
-.ql-footer-nav-button {
-  color: var(--q-muted) !important;
-}
-
-.ql-footer-nav-button:hover,
-.ql-footer-nav-button.active {
-  background: rgba(94, 234, 212, 0.1) !important;
-  color: var(--q-ink-strong) !important;
-}
-
-.ql-footer-nav-button.active .ql-footer-nav-icon {
-  background: var(--q-grad-primary) !important;
-  color: #06211d !important;
 }
 
 /* ============================================================
@@ -1649,20 +1596,16 @@ h5 {
   color: #a7f3d0 !important;
 }
 
-.app .ql-dashboard-footer-nav {
-  background: rgba(7, 25, 24, 0.96) !important;
-}
-
 /* AI Tutor */
 .chat-container {
   border-radius: 20px;
 }
 
 .ai-empty-icon {
-  background: linear-gradient(135deg, rgba(124, 108, 255, 0.3), rgba(232, 121, 249, 0.15)) !important;
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.3), rgba(52, 211, 153, 0.15)) !important;
   border: 1px solid var(--q-border) !important;
   color: var(--q-violet) !important;
-  box-shadow: 0 0 26px rgba(232, 121, 249, 0.25);
+  box-shadow: 0 0 26px rgba(52, 211, 153, 0.25);
   animation: q-float 5s ease-in-out infinite;
 }
 
@@ -1685,7 +1628,7 @@ h5 {
 
 .ai-topic-hints span:hover {
   border-color: var(--q-cyan) !important;
-  box-shadow: 0 0 14px rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 14px rgba(94, 234, 212, 0.3);
 }
 
 .message-role {
@@ -1694,9 +1637,9 @@ h5 {
 }
 
 .user-message .message-text {
-  background: linear-gradient(120deg, rgba(124, 108, 255, 0.22), rgba(34, 211, 238, 0.12)) !important;
+  background: linear-gradient(120deg, rgba(94, 234, 212, 0.22), rgba(94, 234, 212, 0.12)) !important;
   color: var(--q-ink) !important;
-  border: 1px solid rgba(124, 108, 255, 0.3) !important;
+  border: 1px solid rgba(94, 234, 212, 0.3) !important;
 }
 
 .assistant-message .message-text {
@@ -1713,14 +1656,14 @@ h5 {
 }
 
 .message-text code {
-  background: rgba(124, 108, 255, 0.14) !important;
+  background: rgba(94, 234, 212, 0.14) !important;
   color: var(--q-teal);
 }
 
 .message-text pre {
   background: #060912 !important;
-  border: 1px solid rgba(124, 108, 255, 0.25) !important;
-  box-shadow: inset 0 0 18px rgba(124, 108, 255, 0.12);
+  border: 1px solid rgba(94, 234, 212, 0.25) !important;
+  box-shadow: inset 0 0 18px rgba(94, 234, 212, 0.12);
 }
 
 .message-text blockquote {
@@ -1730,20 +1673,20 @@ h5 {
 /* Algorithms / Algorithm Detail */
 .algorithms-hero-pro {
   background:
-    radial-gradient(circle at 85% 10%, rgba(124, 108, 255, 0.3), transparent 34%),
-    radial-gradient(circle at 12% 88%, rgba(34, 211, 238, 0.14), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(94, 234, 212, 0.3), transparent 34%),
+    radial-gradient(circle at 12% 88%, rgba(94, 234, 212, 0.14), transparent 28%),
     linear-gradient(135deg, #0a0d1f, #0f1330) !important;
   border-bottom: 1px solid var(--q-border) !important;
 }
 
 .algorithms-hero-pro::before {
-  background: rgba(124, 108, 255, 0.16);
-  box-shadow: 0 0 60px rgba(124, 108, 255, 0.2);
+  background: rgba(94, 234, 212, 0.16);
+  box-shadow: 0 0 60px rgba(94, 234, 212, 0.2);
 }
 
 .algorithms-hero-content h1 {
   color: var(--q-ink) !important;
-  text-shadow: 0 0 30px rgba(124, 108, 255, 0.4);
+  text-shadow: 0 0 30px rgba(94, 234, 212, 0.4);
 }
 
 .algorithms-hero p,
@@ -1773,7 +1716,7 @@ h5 {
 }
 
 .studio-level > div {
-  background: rgba(141, 130, 255, 0.14) !important;
+  background: rgba(94, 234, 212, 0.14) !important;
 }
 
 .studio-tabs button.active {
@@ -1807,8 +1750,8 @@ h5 {
 }
 
 .state-orbit {
-  border-color: rgba(124, 108, 255, 0.4) !important;
-  box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+  border-color: rgba(94, 234, 212, 0.4) !important;
+  box-shadow: 0 0 30px rgba(94, 234, 212, 0.15);
   animation: q-orbit-breathe 7s ease-in-out infinite;
 }
 
@@ -1823,9 +1766,9 @@ h5 {
 }
 
 .tool-orb {
-  border-color: rgba(124, 108, 255, 0.5) !important;
+  border-color: rgba(94, 234, 212, 0.5) !important;
   color: var(--q-cyan) !important;
-  box-shadow: 0 0 0 14px rgba(124, 108, 255, 0.14), 0 0 0 15px rgba(124, 108, 255, 0.1), 0 0 30px rgba(124, 108, 255, 0.25) !important;
+  box-shadow: 0 0 0 14px rgba(94, 234, 212, 0.14), 0 0 0 15px rgba(94, 234, 212, 0.1), 0 0 30px rgba(94, 234, 212, 0.25) !important;
   animation: q-float 6s ease-in-out infinite;
 }
 
@@ -1840,7 +1783,7 @@ h5 {
 
 .code-editor {
   background: #070a1a !important;
-  color: #67e8f9 !important;
+  color: #5eead4 !important;
 }
 
 .circuit-visual-heading > span {
@@ -1852,15 +1795,15 @@ h5 {
 }
 
 .wire-line {
-  background: linear-gradient(90deg, rgba(124, 108, 255, 0.6), var(--q-cyan)) !important;
-  box-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+  background: linear-gradient(90deg, rgba(94, 234, 212, 0.6), var(--q-cyan)) !important;
+  box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
 }
 
 .visual-gate {
   border-color: var(--q-cyan) !important;
   color: var(--q-teal) !important;
-  background: linear-gradient(135deg, rgba(124, 108, 255, 0.18), rgba(34, 211, 238, 0.08)) !important;
-  box-shadow: 0 0 0 5px rgba(124, 108, 255, 0.1), 0 0 20px rgba(34, 211, 238, 0.2);
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.18), rgba(94, 234, 212, 0.08)) !important;
+  box-shadow: 0 0 0 5px rgba(94, 234, 212, 0.1), 0 0 20px rgba(94, 234, 212, 0.2);
 }
 
 .visual-gate b,
@@ -1886,7 +1829,7 @@ h5 {
 
 .markdown-answer pre {
   background: #060912 !important;
-  color: #67e8f9;
+  color: #5eead4;
 }
 
 /* Simulator scene — extra glow */
@@ -1951,8 +1894,8 @@ h5 {
 }
 
 @keyframes q-logo-pulse {
-  0%, 100% { box-shadow: 0 0 12px rgba(124, 108, 255, 0.4); }
-  50% { box-shadow: 0 0 34px rgba(124, 108, 255, 0.85); transform: scale(1.06); }
+  0%, 100% { box-shadow: 0 0 12px rgba(94, 234, 212, 0.4); }
+  50% { box-shadow: 0 0 34px rgba(94, 234, 212, 0.85); transform: scale(1.06); }
 }
 
 @keyframes q-core-pulse {
@@ -2081,9 +2024,9 @@ body,
 }
 
 .studio-tabs button.active {
-  background: rgba(124, 108, 255, 0.14) !important;
+  background: rgba(94, 234, 212, 0.14) !important;
   color: var(--q-ink) !important;
-  border-bottom-color: rgba(124, 108, 255, 0.5) !important;
+  border-bottom-color: rgba(94, 234, 212, 0.5) !important;
 }
 
 .studio-tabs button span {
@@ -2112,14 +2055,14 @@ body,
 }
 
 .studio-level i {
-  background: linear-gradient(90deg, #3b82f6, #5eead4) !important;
+  background: linear-gradient(90deg, #5eead4, #5eead4) !important;
 }
 
 button[role="tab"],
 [role="tab"],
 .tab-button,
 .nav-tab {
-  background: rgba(124, 108, 255, 0.08) !important;
+  background: rgba(94, 234, 212, 0.08) !important;
   color: var(--q-ink) !important;
   border: 1px solid var(--q-border) !important;
 }
@@ -2128,7 +2071,7 @@ button[role="tab"][aria-selected="true"],
 [role="tab"][aria-selected="true"],
 .tab-button.active,
 .nav-tab.active {
-  background: rgba(124, 108, 255, 0.18) !important;
+  background: rgba(94, 234, 212, 0.18) !important;
   color: var(--q-ink) !important;
   border-color: rgba(94, 234, 212, 0.28) !important;
 }
@@ -2278,10 +2221,10 @@ button[role="tab"][aria-selected="true"],
 }
 
 .placed-gate {
-  background: linear-gradient(135deg, #1d3d87, #3b82f6) !important;
+  background: linear-gradient(135deg, #0f766e, #5eead4) !important;
   border: 1px solid #5eead4 !important;
   color: #ffffff !important;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 0 12px rgba(94, 234, 212, 0.4) !important;
 }
 
 .qubit-label {
@@ -2326,20 +2269,54 @@ input.circuit-input {
 }
 
 /* ============================================================
-   19. GLOBAL HIGH-CONTRAST FALLBACK RULES
-   If any box is white/light, force its font dark.
-   If any box is dark, force its font light.
+   19. GREEN THEME SURFACE FALLBACKS
    ============================================================ */
 .bg-white,
 .card-light,
 .white-box,
 [style*="background: #fff"],
+[style*="background:#fff"],
+[style*="background: #ffffff"],
+[style*="background:#ffffff"],
 [style*="background: white"],
+[style*="background:white"],
 [style*="background-color: #fff"],
+[style*="background-color:#fff"],
+[style*="background-color: #ffffff"],
+[style*="background-color:#ffffff"],
 [style*="background-color: white"],
+[style*="background-color:white"],
 [style*="background: rgb(255, 255, 255)"],
-[style*="background-color: rgb(255, 255, 255)"] {
-  color: #0f172a !important;
+[style*="background-color: rgb(255, 255, 255)"],
+.ai-level-selector,
+.level-option,
+.chat-input-area,
+.continue-lecture-button {
+  background: linear-gradient(145deg, rgba(16, 32, 31, 0.94), rgba(8, 25, 24, 0.9)) !important;
+  border-color: var(--q-border) !important;
+  color: var(--q-ink) !important;
+}
+
+.bg-white,
+.card-light,
+.white-box,
+[style*="background: #fff"],
+[style*="background:#fff"],
+[style*="background: #ffffff"],
+[style*="background:#ffffff"],
+[style*="background: white"],
+[style*="background:white"],
+[style*="background-color: #fff"],
+[style*="background-color:#fff"],
+[style*="background-color: #ffffff"],
+[style*="background-color:#ffffff"],
+[style*="background-color: white"],
+[style*="background-color:white"],
+[style*="background: rgb(255, 255, 255)"],
+[style*="background-color: rgb(255, 255, 255)"],
+.ai-level-selector,
+.chat-input-area {
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22) !important;
 }
 
 .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5,
@@ -2347,7 +2324,52 @@ input.circuit-input {
 [style*="background: #fff"] h1, [style*="background: #fff"] h2,
 [style*="background: #fff"] h3, [style*="background: #fff"] p,
 [style*="background: #fff"] span, [style*="background: #fff"] strong,
+[style*="background:#fff"] h1, [style*="background:#fff"] p,
+[style*="background:#fff"] span, [style*="background:#fff"] strong,
 [style*="background: white"] h1, [style*="background: white"] p,
-[style*="background: white"] span, [style*="background: white"] strong {
-  color: #0f172a !important;
+[style*="background: white"] span, [style*="background: white"] strong,
+[style*="background:white"] h1, [style*="background:white"] p,
+[style*="background:white"] span, [style*="background:white"] strong {
+  color: var(--q-ink) !important;
+}
+
+.ai-empty-icon {
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.28), rgba(52, 211, 153, 0.14)) !important;
+  border-color: var(--q-border) !important;
+  color: var(--q-teal) !important;
+}
+
+.level-option {
+  background: rgba(17, 43, 43, 0.76) !important;
+  color: var(--q-muted) !important;
+}
+
+.level-option:hover:not(:disabled),
+.level-option.active {
+  background: rgba(94, 234, 212, 0.14) !important;
+  border-color: var(--q-border-hot) !important;
+  color: var(--q-teal) !important;
+}
+
+.level-option.active .level-dot {
+  background: var(--q-teal) !important;
+}
+
+.chat-input-area button {
+  background: var(--q-grad-primary) !important;
+  color: #06211d !important;
+}
+
+.chat-input-area button:disabled {
+  background: rgba(94, 234, 212, 0.08) !important;
+  color: var(--q-faint) !important;
+}
+
+.continue-lecture-button {
+  color: var(--q-teal) !important;
+}
+
+.continue-lecture-button:hover {
+  background: rgba(94, 234, 212, 0.12) !important;
+  border-color: var(--q-border-hot) !important;
 }

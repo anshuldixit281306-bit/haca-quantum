@@ -11,7 +11,7 @@ function QuantumBackground() {
     let width = 0;
     let height = 0;
     let frame = 0;
-    const colors = ["#00e5ff", "#3b82f6", "#8b5cf6", "#a855f7"];
+    const colors = ["#5eead4", "#5eead4", "#34d399", "#34d399"];
     const particles = [];
     const resize = () => {
       width = canvas.width = window.innerWidth;
@@ -39,7 +39,7 @@ function QuantumBackground() {
             context.beginPath();
             context.moveTo(particle.x, particle.y);
             context.lineTo(other.x, other.y);
-            context.strokeStyle = `rgba(0,229,255,${(1 - distance / 140) * 0.15})`;
+            context.strokeStyle = `rgba(94,234,212,${(1 - distance / 140) * 0.15})`;
             context.lineWidth = 0.5;
             context.stroke();
           }

@@ -37,8 +37,6 @@ import "./CircuitSimulator.css";
 
 import { API_BASE_URL } from "../services/api";
 import { simulateCircuit } from "../services/quantumApi";
-import BottomNavigation from "../components/BottomNavigation";
-
 const INITIAL_QUBITS = 2;
 const INITIAL_COLUMNS = 8;
 const MAX_QUBITS = 20;
@@ -2356,8 +2354,6 @@ Explain which gates can be removed, merged, reordered, or simplified.
           </section>
         </aside>
       </main>
-
-      <BottomNavigation />
     </div>
   );
 }

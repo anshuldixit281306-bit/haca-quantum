@@ -11,7 +11,7 @@ function HeroParticles() {
     let frame = 0;
     let width = canvas.offsetWidth;
     let height = canvas.offsetHeight;
-    const particles = Array.from({ length: 55 }, () => ({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25, size: Math.random() * 1.8 + 0.3, color: ["#00e5ff", "#3b82f6", "#8b5cf6"][Math.floor(Math.random() * 3)], alpha: Math.random() * 0.4 + 0.1 }));
+    const particles = Array.from({ length: 55 }, () => ({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25, size: Math.random() * 1.8 + 0.3, color: ["#5eead4", "#5eead4", "#34d399"][Math.floor(Math.random() * 3)], alpha: Math.random() * 0.4 + 0.1 }));
     const resize = () => { width = canvas.width = canvas.offsetWidth; height = canvas.height = canvas.offsetHeight; };
     const render = () => { context.clearRect(0, 0, width, height); particles.forEach((particle) => { particle.x = (particle.x + particle.vx + width) % width; particle.y = (particle.y + particle.vy + height) % height; context.beginPath(); context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2); context.fillStyle = particle.color; context.globalAlpha = particle.alpha; context.fill(); }); context.globalAlpha = 1; frame = requestAnimationFrame(render); };
     resize(); render(); window.addEventListener("resize", resize);

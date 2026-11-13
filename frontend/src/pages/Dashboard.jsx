@@ -19,10 +19,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-
-import BottomNavigation from "../components/BottomNavigation";
-import "./Dashboard.css";
+import { useNavigate } from "react-router-dom";import "./Dashboard.css";
 
 import { API_BASE_URL } from "../services/api";
 
@@ -1035,7 +1032,6 @@ function Dashboard() {
       </main>
 
       {/* IMPORTANT: ONE reusable global student navigation */}
-      <BottomNavigation />
     </div>
   );
 }

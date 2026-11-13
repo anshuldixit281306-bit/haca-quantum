@@ -1,15 +1,15 @@
 ﻿
 :root {
-  --bg: #070b1c;
-  --surface: #10172e;
-  --ink: #f5f7ff;
-  --muted: #a4acc8;
-  --faint: #687394;
-  --border: rgba(153, 167, 230, .18);
-  --indigo: #8c7bff;
-  --indigo-soft: rgba(140, 123, 255, .14);
-  --teal: #4de1d0;
-  --teal-soft: rgba(77, 225, 208, .12);
+  --bg: #061312;
+  --surface: #0a1b1a;
+  --ink: #e7faf4;
+  --muted: #9abbb3;
+  --faint: #70918a;
+  --border: rgba(94, 234, 212, .18);
+  --indigo: #5eead4;
+  --indigo-soft: rgba(94, 234, 212, .14);
+  --teal: #5eead4;
+  --teal-soft: rgba(94, 234, 212, .12);
   --radius: 3px;
   --sidebar-width: 220px;
   --navbar-height: 64px;
@@ -37,7 +37,7 @@ h4,
   display: block;
   overflow: visible;
   background:
-    radial-gradient(circle at 76% 8%, rgba(111, 79, 255, .16), transparent 26%),
+    radial-gradient(circle at 76% 8%, rgba(94, 234, 212, .16), transparent 26%),
     radial-gradient(circle at 10% 86%, rgba(26, 210, 194, .09), transparent 23%),
     var(--bg);
 }
@@ -385,11 +385,6 @@ h4,
   background: var(--border);
 }
 
-/* Keep the previous page-level menu from duplicating the shell rail. */
-.ql-dashboard-footer-nav {
-  display: none !important;
-}
-
 /* Shared reader-like treatment for existing page surfaces. */
 .dashboard-page,
 .learn-page,
@@ -547,10 +542,6 @@ h4,
   .page-content {
     margin-left: 0;
     padding: calc(var(--navbar-height) + 28px) 20px 32px;
-  }
-
-  .ql-dashboard-footer-nav {
-    display: flex !important;
   }
 
   .dashboard-main,

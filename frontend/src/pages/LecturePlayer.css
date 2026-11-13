@@ -51,7 +51,7 @@
 .lecture-explore-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .lecture-explore-card h2 { margin: 4px 0 4px; font-size: 21px; }
 .lecture-explore-card p { max-width: 680px; color: var(--q-muted); font-size: 13px; }
-.lecture-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 8px 13px; border: 1px solid var(--q-border-hot); border-radius: 9px; color: var(--q-ink); background: rgba(124,108,255,.1); font-size: 12px; white-space: nowrap; }
+.lecture-button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; padding: 8px 13px; border: 1px solid var(--q-border-hot); border-radius: 9px; color: var(--q-ink); background: rgba(94,234,212,.1); font-size: 12px; white-space: nowrap; }
 .lecture-button.primary { border-color: transparent; color: #07101c; background: var(--q-grad-primary); font-weight: 700; }
 .lecture-button:disabled { cursor: not-allowed; opacity: .5; }
 .lecture-question h3 { margin: 0 0 13px; font-size: 15px; }
@@ -66,7 +66,7 @@
 .lecture-visual-stage { position: relative; display: grid; place-items: center; min-height: 310px; overflow: hidden; border: 1px solid rgba(141,130,255,.17); border-radius: 13px; background: linear-gradient(145deg, #0a1024, #0d1d31); }
 .lecture-stage-orbit { position: absolute; width: 230px; height: 140px; border: 1px solid rgba(34,211,238,.15); border-radius: 50%; transform: rotate(-24deg); animation: lecture-orbit 7s linear infinite; }
 .visual-stack { position: relative; display: grid; place-items: center; gap: 15px; width: calc(100% - 28px); z-index: 1; }
-.formula { padding: 9px 14px; border: 1px solid rgba(141,130,255,.35); border-radius: 9px; color: #dbeafe; background: rgba(124,108,255,.12); font: 15px var(--q-font-mono); }
+.formula { padding: 9px 14px; border: 1px solid rgba(141,130,255,.35); border-radius: 9px; color: #dbeafe; background: rgba(94,234,212,.12); font: 15px var(--q-font-mono); }
 .qubit-card { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; }
 .qubit-card strong, .qubit-card span { display: block; }
 .qubit-card span { margin-top: 5px; color: var(--q-muted); font: 12px var(--q-font-mono); }
@@ -82,7 +82,7 @@
 .lecture-results-head h2 { margin-top: 4px; font-size: 22px; }
 .lecture-results-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 15px; }
 .bloch-wrap { display: grid; place-items: center; gap: 12px; min-height: 220px; }
-.bloch-sphere { position: relative; width: 160px; height: 160px; border: 1px solid rgba(34,211,238,.55); border-radius: 50%; box-shadow: inset 20px 0 35px rgba(124,108,255,.18), inset -20px 0 35px rgba(34,211,238,.12); }
+.bloch-sphere { position: relative; width: 160px; height: 160px; border: 1px solid rgba(34,211,238,.55); border-radius: 50%; box-shadow: inset 20px 0 35px rgba(94,234,212,.18), inset -20px 0 35px rgba(34,211,238,.12); }
 .bloch-equator { position: absolute; inset: 35% -1px; border-top: 1px dashed rgba(141,130,255,.6); border-bottom: 1px dashed rgba(141,130,255,.35); border-radius: 50%; }
 .bloch-axis { position: absolute; background: rgba(141,130,255,.35); }
 .bloch-x { left: 10%; right: 10%; top: 50%; height: 1px; }

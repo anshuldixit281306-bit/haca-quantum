@@ -13,7 +13,7 @@ function QuantumParticleField({ mode }) {
     let height = 0;
     let particles = [];
     const pointer = { x: -1000, y: -1000, active: false };
-    const palette = [["#756be8", "#67cfc1"], ["#0f7c79", "#756be8"], ["#d97745", "#756be8"]];
+    const palette = [["#5eead4", "#67cfc1"], ["#0f7c79", "#5eead4"], ["#d97745", "#5eead4"]];
 
     const resize = () => {
       const scale = window.devicePixelRatio || 1;

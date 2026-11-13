@@ -50,7 +50,7 @@
 }
 
 .ai-tutor-back:hover {
-  color: #356ae6;
+  color: #5eead4;
 }
 
 .ai-tutor-logo {
@@ -96,7 +96,7 @@
   border-radius: 13px;
 
   background: #eef4ff;
-  color: #356ae6;
+  color: #5eead4;
 
   box-shadow: 0 5px 18px rgba(53, 106, 230, 0.08);
 }
@@ -104,7 +104,7 @@
 .ai-tutor-title p {
   margin: 0 0 7px;
 
-  color: #356ae6;
+  color: #5eead4;
 
   font-size: 10px;
   font-weight: 700;
@@ -196,7 +196,7 @@
   border-radius: 18px;
 
   background: #eef4ff;
-  color: #356ae6;
+  color: #5eead4;
 
   box-shadow:
     0 8px 22px rgba(53, 106, 230, 0.1);
@@ -395,13 +395,13 @@
   margin: 12px 0;
   padding-left: 12px;
 
-  border-left: 3px solid #356ae6;
+  border-left: 3px solid #5eead4;
 
   color: #667085;
 }
 
 .message-text a {
-  color: #356ae6;
+  color: #5eead4;
   text-decoration: underline;
 }
 
@@ -422,7 +422,7 @@
 
   border-radius: 50%;
 
-  background: #356ae6;
+  background: #5eead4;
 
   animation: aiThinking 1.2s infinite ease-in-out;
 }
@@ -529,14 +529,14 @@
 
 .level-option:hover:not(:disabled) {
   border-color: #b9c9ec;
-  color: #356ae6;
+  color: #5eead4;
   background: #f7f9fc;
 }
 
 .level-option.active {
-  border-color: #356ae6;
+  border-color: #5eead4;
   background: #eef4ff;
-  color: #356ae6;
+  color: #5eead4;
   font-weight: 650;
 }
 
@@ -559,7 +559,7 @@
 }
 
 .level-option.active .level-dot {
-  background: #356ae6;
+  background: #5eead4;
 }
 
 
@@ -586,7 +586,7 @@
 }
 
 .chat-input-area:focus-within {
-  border-color: #356ae6;
+  border-color: #5eead4;
 
   box-shadow:
     0 0 0 3px rgba(53, 106, 230, 0.08);
@@ -628,7 +628,7 @@
   border: none;
   border-radius: 8px;
 
-  background: #356ae6;
+  background: #5eead4;
   color: #ffffff;
 
   cursor: pointer;
@@ -639,7 +639,7 @@
 }
 
 .chat-input-area button:hover:not(:disabled) {
-  background: #2857c7;
+  background: #0f766e;
 }
 
 .chat-input-area button:active:not(:disabled) {
@@ -725,12 +725,12 @@
 }
 
 .ai-nav-item:hover {
-  color: #356ae6;
+  color: #5eead4;
   background: #f7f9fc;
 }
 
 .ai-nav-item.active {
-  color: #356ae6;
+  color: #5eead4;
   background: #eef4ff;
   font-weight: 600;
 }

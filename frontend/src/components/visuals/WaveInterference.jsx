@@ -51,7 +51,7 @@ export default function WaveInterference({ amplitudes, probabilities }) {
         <path
           d={wavePath(a0 / scale, 0, 55, width)}
           fill="none"
-          stroke="#7c6cff"
+          stroke="#5eead4"
           strokeWidth="2.4"
           opacity="0.9"
           strokeDasharray="6 4"
@@ -61,7 +61,7 @@ export default function WaveInterference({ amplitudes, probabilities }) {
         <path
           d={wavePath(a1 / scale, Math.PI / 2, 55, width)}
           fill="none"
-          stroke="#f472b6"
+          stroke="#34d399"
           strokeWidth="2.4"
           opacity="0.9"
           strokeDasharray="6 4"
@@ -76,14 +76,14 @@ export default function WaveInterference({ amplitudes, probabilities }) {
             width
           )}
           fill="none"
-          stroke="#22d3ee"
+          stroke="#a7f3d0"
           strokeWidth="3.2"
-          style={{ filter: "drop-shadow(0 0 6px rgba(34,211,238,0.8))" }}
+          style={{ filter: "drop-shadow(0 0 6px rgba(94,234,212,0.8))" }}
         />
 
         <text x="8" y="20" fill="#a3adcf" fontSize="11">|0⟩ wave (α)</text>
-        <text x="8" y="98" fill="#f0abdc" fontSize="11">|1⟩ wave (β)</text>
-        <text x="8" y="182" fill="#67e8f9" fontSize="11">resultant |ψ⟩</text>
+        <text x="8" y="98" fill="#34d399" fontSize="11">|1⟩ wave (β)</text>
+        <text x="8" y="182" fill="#a7f3d0" fontSize="11">resultant |ψ⟩</text>
       </svg>
 
       <span className="ql-formula">

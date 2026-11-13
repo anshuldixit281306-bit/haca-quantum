@@ -242,8 +242,8 @@
 
 [data-theme="dark"] .notification-button:hover {
   background: #252d40;
-  border-color: rgba(139, 92, 246, 0.45);
-  color: #c4b5fd;
+  border-color: rgba(52, 211, 153, 0.45);
+  color: #a7f3d0;
 }
 
 [data-theme="dark"] .notification-dot {
@@ -274,7 +274,7 @@
 }
 
 .notification-panel-header span {
-  color: var(--accent, #7c3aed);
+  color: var(--accent, #34d399);
   font-size: 11px;
 }
 
@@ -290,7 +290,7 @@
   height: 7px;
   flex: 0 0 auto;
   margin-top: 5px;
-  background: var(--accent, #7c3aed);
+  background: var(--accent, #34d399);
   border-radius: 50%;
 }
 

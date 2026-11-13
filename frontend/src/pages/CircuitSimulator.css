@@ -2087,7 +2087,7 @@
 
 .run-simulation-button {
   color: #06211d;
-  background: linear-gradient(135deg, #a7f3d0, #5eead4 48%, #3b82f6);
+  background: linear-gradient(135deg, #a7f3d0, #5eead4 48%, #5eead4);
   border-color: rgba(94, 234, 212, 0.4);
   box-shadow: 0 4px 10px rgba(94, 234, 212, 0.18);
 }
@@ -2143,7 +2143,7 @@
 
 .ai-primary-button {
   color: #06211d;
-  background: linear-gradient(135deg, #a7f3d0, #5eead4 48%, #3b82f6);
+  background: linear-gradient(135deg, #a7f3d0, #5eead4 48%, #5eead4);
   border-color: rgba(94, 234, 212, 0.4);
   box-shadow: 0 4px 10px rgba(94, 234, 212, 0.14);
 }
@@ -2171,8 +2171,8 @@
 }
 
 .status-icon.validation {
-  color: #7dd3fc;
-  background: rgba(59, 130, 246, 0.08);
+  color: #5eead4;
+  background: rgba(94, 234, 212, 0.08);
 }
 
 .live-badge {

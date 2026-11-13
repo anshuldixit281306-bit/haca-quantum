@@ -29,7 +29,7 @@
 }
 
 .profile-back:hover {
-  color: #2563eb;
+  color: #5eead4;
 }
 
 .profile-brand {
@@ -59,7 +59,7 @@
   width: 30px;
   height: 30px;
   border: 3px solid #dbe7f5;
-  border-top-color: #2563eb;
+  border-top-color: #5eead4;
   border-radius: 50%;
   animation: profileSpin 0.8s linear infinite;
 }
@@ -101,7 +101,7 @@
   border-radius: 50%;
   background: #eaf3ff;
   border: 1px solid #bfd5f2;
-  color: #2563eb;
+  color: #5eead4;
   font-size: 30px;
   font-weight: 750;
 }
@@ -114,7 +114,7 @@
 .profile-label {
   display: block;
   margin-bottom: 6px;
-  color: #2563eb;
+  color: #5eead4;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.2px;
@@ -145,7 +145,7 @@
   border: 1px solid #bfdbfe;
   border-radius: 999px;
   background: #eff6ff;
-  color: #2563eb;
+  color: #5eead4;
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
@@ -166,7 +166,7 @@
 }
 
 .profile-section-heading span {
-  color: #2563eb;
+  color: #5eead4;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1.2px;
@@ -180,7 +180,7 @@
 }
 
 .profile-view-progress {
-  color: #2563eb;
+  color: #5eead4;
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
@@ -217,7 +217,7 @@
   flex: 0 0 42px;
   border-radius: 11px;
   background: #eaf3ff;
-  color: #2563eb;
+  color: #5eead4;
 }
 
 .profile-stat-card strong {
@@ -256,7 +256,7 @@
 }
 
 .profile-progress-top strong {
-  color: #2563eb;
+  color: #5eead4;
 }
 
 .profile-progress-track {
@@ -270,7 +270,7 @@
 .profile-progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: #2563eb;
+  background: #5eead4;
   transition: width 0.5s ease;
 }
 
@@ -307,7 +307,7 @@
 .profile-action-card svg {
   flex: 0 0 auto;
   margin-top: 2px;
-  color: #2563eb;
+  color: #5eead4;
 }
 
 .profile-action-card strong {
@@ -358,7 +358,7 @@
   justify-content: center;
   border-radius: 10px;
   background: #f0f6ff;
-  color: #2563eb;
+  color: #5eead4;
 }
 
 .profile-account-row strong {
@@ -428,7 +428,7 @@
 }
 
 .profile-navigation a:hover {
-  color: #2563eb;
+  color: #5eead4;
 }
 
 /* Responsive */

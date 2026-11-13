@@ -1,7 +1,7 @@
 import { Award, Calendar, Flame, TrendingUp } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const progress = [["Overall Progress", 78, "#00e5ff"], ["Quantum Fundamentals", 92, "#3b82f6"], ["Quantum Algorithms", 68, "#8b5cf6"], ["Quizzes", 84, "#a855f7"], ["Challenges", 73, "#00e5ff"]];
+const progress = [["Overall Progress", 78, "#5eead4"], ["Quantum Fundamentals", 92, "#5eead4"], ["Quantum Algorithms", 68, "#34d399"], ["Quizzes", 84, "#34d399"], ["Challenges", 73, "#5eead4"]];
 
 export default function ProgressReport() {
   const [visible, setVisible] = useState(false);

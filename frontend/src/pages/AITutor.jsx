@@ -5,8 +5,6 @@ import ReactMarkdown from "react-markdown";
 
 import "./AITutor.css";
 import { API_BASE_URL } from "../services/api";
-import BottomNavigation from "../components/BottomNavigation";
-
 const API_URL = API_BASE_URL;
 
 function AITutor() {
@@ -345,9 +343,6 @@ function AITutor() {
         </section>
 
       </main>
-
-
-      <BottomNavigation />
 
     </div>
   );

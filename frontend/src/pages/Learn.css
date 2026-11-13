@@ -38,7 +38,7 @@
 }
 
 .learn-back:hover {
-  color: #356ae6;
+  color: #5eead4;
 }
 
 .learn-logo {
@@ -84,7 +84,7 @@
   flex-shrink: 0;
 
   background: #eef4ff;
-  color: #356ae6;
+  color: #5eead4;
 
   border: 1px solid #dbe7ff;
   border-radius: 10px;
@@ -93,7 +93,7 @@
 .learn-label {
   margin-bottom: 7px;
 
-  color: #356ae6;
+  color: #5eead4;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -234,7 +234,7 @@
   transform: translate(-50%, -50%);
 
   background: rgba(255, 255, 255, 0.94);
-  color: #356ae6;
+  color: #5eead4;
 
   border-radius: 50%;
   box-shadow: 0 3px 12px rgba(15, 23, 42, 0.16);
@@ -264,7 +264,7 @@
 }
 
 .lecture-tag {
-  color: #356ae6;
+  color: #5eead4;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -311,7 +311,7 @@
   padding: 11px 16px;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(124, 108, 255, 0.9), rgba(34, 211, 238, 0.85));
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.9), rgba(94, 234, 212, 0.85));
   color: #071022;
   font-weight: 700;
   font-size: 13.5px;
@@ -322,7 +322,7 @@
 
 .interactive-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(34, 211, 238, 0.45);
+  box-shadow: 0 10px 24px rgba(94, 234, 212, 0.45);
 }
 
 /* ---------- Watch button (original) ---------- */
@@ -334,7 +334,7 @@
 
   padding: 7px 0;
 
-  color: #356ae6;
+  color: #5eead4;
 
   font-size: 13px;
   font-weight: 600;
@@ -386,7 +386,7 @@
   height: 28px;
 
   border: 3px solid #e5e7eb;
-  border-top-color: #356ae6;
+  border-top-color: #5eead4;
   border-radius: 50%;
 
   animation: learnSpin 0.8s linear infinite;
@@ -443,8 +443,8 @@
 }
 
 .retry-button:hover {
-  border-color: #356ae6;
-  color: #356ae6;
+  border-color: #5eead4;
+  color: #5eead4;
 }
 
 /* Video modal */
@@ -487,7 +487,7 @@
 }
 
 .video-modal-header span {
-  color: #356ae6;
+  color: #5eead4;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -589,12 +589,12 @@
 }
 
 .learn-nav-item:hover {
-  color: #356ae6;
+  color: #5eead4;
   background: #f5f7fb;
 }
 
 .learn-nav-item.active {
-  color: #356ae6;
+  color: #5eead4;
   background: #eef4ff;
   font-weight: 600;
 }
